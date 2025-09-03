@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cueva2kdc4ao1"]
+
+[node name="Terrain" type="Node2D"]

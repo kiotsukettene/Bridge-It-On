@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://5rj4ygx3ai6p"]
+
+[node name="BridgeBuilder" type="Node2D"]
