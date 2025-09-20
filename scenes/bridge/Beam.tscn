@@ -1,3 +1,27 @@
-[gd_scene format=3 uid="uid://o87nfab2yokm"]
+[gd_scene load_steps=3 format=3 uid="uid://o87nfab2yokm"]
+
+[ext_resource type="Texture2D" uid="uid://be3m5yt5twfm8" path="res://assets/materials/hardwood-flooring-game-assets_397139-14060.jpg" id="1_dw57l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8vln"]
+height = 280.0
 
 [node name="Beam" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(142, 12)
+texture = ExtResource("1_dw57l")
+region_enabled = true
+region_rect = Rect2(150.379, 216.982, 280, 21.306)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(142, 12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_q8vln")
+
+[node name="LeftJoint" type="Marker2D" parent="RigidBody2D"]
+position = Vector2(2, 12)
+
+[node name="RightJoint" type="Marker2D" parent="RigidBody2D"]
+position = Vector2(282, 12)

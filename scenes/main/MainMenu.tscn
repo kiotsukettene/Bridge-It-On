@@ -1,3 +1,39 @@
-[gd_scene format=3 uid="uid://cf0wdllgt1hl5"]
+[gd_scene load_steps=3 format=3 uid="uid://cf0wdllgt1hl5"]
+
+[ext_resource type="Script" uid="uid://chygj3tc1y1px" path="res://scripts/core/SceneManager.gd" id="1_qi05h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyo5q"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_qi05h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 419.0
+offset_top = 218.0
+offset_right = 796.0
+offset_bottom = 366.0
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_cyo5q")
+text = "Play"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_cyo5q")
+text = "Levels
+"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
