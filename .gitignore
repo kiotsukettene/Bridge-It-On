@@ -2,4 +2,7 @@
 .godot/
 /android/
 .vscode/
+.import/
+.export//
+.cache/
 
