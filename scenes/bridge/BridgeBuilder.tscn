@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://5rj4ygx3ai6p"]
+[gd_scene load_steps=3 format=3 uid="uid://5rj4ygx3ai6p"]
+
+[ext_resource type="Script" uid="uid://ded427d23omi" path="res://scripts/bridge/BridgeBuilder.gd" id="1_3fsv8"]
+[ext_resource type="PackedScene" uid="uid://o87nfab2yokm" path="res://scenes/bridge/Beam.tscn" id="2_265cb"]
 
 [node name="BridgeBuilder" type="Node2D"]
+script = ExtResource("1_3fsv8")
+beam_scene = ExtResource("2_265cb")
