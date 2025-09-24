@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://boojg1wh1amv5"]
+[gd_scene load_steps=3 format=3 uid="uid://boojg1wh1amv5"]
+
+[ext_resource type="PackedScene" uid="uid://cueva2kdc4ao1" path="res://scenes/environment/Terrain.tscn" id="1_rj7qi"]
+[ext_resource type="PackedScene" uid="uid://5rj4ygx3ai6p" path="res://scenes/bridge/BridgeBuilder.tscn" id="2_0y155"]
 
 [node name="Game" type="Node2D"]
+
+[node name="Terrain" parent="." instance=ExtResource("1_rj7qi")]
+
+[node name="BridgeBuilder" parent="." instance=ExtResource("2_0y155")]

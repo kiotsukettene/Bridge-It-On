@@ -1,3 +1,80 @@
-[gd_scene format=3 uid="uid://cueva2kdc4ao1"]
+[gd_scene load_steps=4 format=3 uid="uid://cueva2kdc4ao1"]
+
+[ext_resource type="Texture2D" uid="uid://bpagbf1740ib4" path="res://assets/sprites/environment/Terrain.png" id="1_5w0e7"]
+[ext_resource type="PackedScene" uid="uid://pk6ubp6u20pd" path="res://scenes/bridge/Anchor.tscn" id="2_cf67q"]
+[ext_resource type="PackedScene" uid="uid://dmovlverqiyoq" path="res://scenes/bridge/FloorBeam.tscn" id="3_g7024"]
 
 [node name="Terrain" type="Node2D"]
+
+[node name="LeftTerrain" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftTerrain"]
+position = Vector2(166.563, 544)
+scale = Vector2(0.19482, 0.127867)
+texture = ExtResource("1_5w0e7")
+region_enabled = true
+region_rect = Rect2(207.853, 725.638, 2109.07, 1613.26)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LeftTerrain"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftTerrain/StaticBody2D"]
+position = Vector2(2, -2)
+build_mode = 1
+polygon = PackedVector2Array(3, 448, 367, 448, 366, 468, 357, 476, 354, 476, 352, 645, 0, 647)
+
+[node name="RightTerrain" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="RightTerrain"]
+position = Vector2(970.266, 545)
+scale = Vector2(0.185618, 0.127867)
+texture = ExtResource("1_5w0e7")
+region_enabled = true
+region_rect = Rect2(207.853, 725.638, 2109.07, 1613.26)
+region_filter_clip_enabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RightTerrain"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightTerrain/StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(775, 448, 1152, 449, 1151, 646, 781, 647, 781, 482, 774, 480)
+
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="FloorBeam" parent="Floor" instance=ExtResource("3_g7024")]
+position = Vector2(469, 459)
+
+[node name="FloorBeam2" parent="Floor" instance=ExtResource("3_g7024")]
+position = Vector2(672, 459)
+
+[node name="Anchors" type="Node2D" parent="."]
+
+[node name="Anchor" parent="Anchors" instance=ExtResource("2_cf67q")]
+position = Vector2(774, 459)
+
+[node name="Anchor2" parent="Anchors" instance=ExtResource("2_cf67q")]
+position = Vector2(571, 459)
+
+[node name="Anchor3" parent="Anchors" instance=ExtResource("2_cf67q")]
+position = Vector2(367, 459)
+
+[node name="Joints" type="Node2D" parent="."]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Joints"]
+position = Vector2(367, 459)
+node_a = NodePath("../../Anchors/Anchor3")
+node_b = NodePath("../../Floor/FloorBeam")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Joints"]
+position = Vector2(569, 459)
+node_a = NodePath("../../Floor/FloorBeam")
+node_b = NodePath("../../Anchors/Anchor2")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="Joints"]
+position = Vector2(774, 459)
+node_a = NodePath("../../Floor/FloorBeam2")
+node_b = NodePath("../../Anchors/Anchor")
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="Joints"]
+position = Vector2(572, 459)
+node_a = NodePath("../../Anchors/Anchor2")
+node_b = NodePath("../../Floor/FloorBeam2")
