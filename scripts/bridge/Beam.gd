@@ -24,10 +24,8 @@ func _update_transform():
 
 	var length = pos_a.distance_to(pos_b)
 
-	# ✅ Sprite uses full length
 	sprite.scale.x = length / sprite.texture.get_width()
 
-	# ✅ Collider slightly shorter (avoid overlapping anchors)
 	var margin := 8.0  # shrink on both ends (pixels)
 	var collision_length = max(length - margin, 0.0)
 

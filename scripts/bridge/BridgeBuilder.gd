@@ -44,7 +44,6 @@ func _finish_drawing(mouse_pos: Vector2):
 		end_anchor.add_to_group("anchors")
 		end_anchor.start_drag.connect(_on_anchor_drag_start)
 
-		# ✅ Fix: make sure spawned anchors are in the correct collision layer/mask
 		end_anchor.collision_layer = 1   # Anchors layer only
 		end_anchor.collision_mask = 0    # No collisions
 
