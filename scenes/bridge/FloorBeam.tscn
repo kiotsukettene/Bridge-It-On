@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmovlverqiyoq"]
+
+[ext_resource type="Script" uid="uid://c5ufh14hiu4s0" path="res://scripts/bridge/FloorBeam.gd" id="1_a3i8f"]
+[ext_resource type="Texture2D" uid="uid://dodld65iu3c6y" path="res://assets/sprites/environment/FloorTexture.png" id="1_fj5xq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3i8f"]
+size = Vector2(202, 8)
+
+[node name="FloorBeam" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_a3i8f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.193427, 0.101744)
+texture = ExtResource("1_fj5xq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 1.1)
+shape = SubResource("RectangleShape2D_a3i8f")

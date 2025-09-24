@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://pk6ubp6u20pd"]
+[gd_scene load_steps=4 format=3 uid="uid://pk6ubp6u20pd"]
 
-[node name="Anchor" type="Node2D"]
+[ext_resource type="Script" uid="uid://d206ag2ug56ep" path="res://scripts/bridge/Anchor.gd" id="1_sho14"]
+[ext_resource type="Texture2D" uid="uid://cuc61cy05sgwt" path="res://assets/sprites/environment/anchor.png" id="1_x5ldi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ieb1a"]
+radius = 13.0384
+
+[node name="Anchor" type="StaticBody2D"]
+collision_mask = 0
+input_pickable = true
+script = ExtResource("1_sho14")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.289063, 0.285156)
+texture = ExtResource("1_x5ldi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ieb1a")
