@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://5rj4ygx3ai6p"]
+[gd_scene load_steps=4 format=3 uid="uid://5rj4ygx3ai6p"]
+
+[ext_resource type="Script" uid="uid://ded427d23omi" path="res://scripts/bridge/BridgeBuilder.gd" id="1_265cb"]
+[ext_resource type="PackedScene" uid="uid://o87nfab2yokm" path="res://scenes/bridge/Beam.tscn" id="2_c16mv"]
+[ext_resource type="PackedScene" uid="uid://pk6ubp6u20pd" path="res://scenes/bridge/Anchor.tscn" id="3_de4py"]
 
 [node name="BridgeBuilder" type="Node2D"]
+script = ExtResource("1_265cb")
+beam_scene = ExtResource("2_c16mv")
+anchor_scene = ExtResource("3_de4py")
+
+[node name="Line2D" type="Line2D" parent="."]
+default_color = Color(0.933333, 0.819608, 0.666667, 1)
