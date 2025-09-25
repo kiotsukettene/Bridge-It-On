@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm3ctse74k087"]
+
+[ext_resource type="Texture2D" uid="uid://bpagbf1740ib4" path="res://assets/sprites/environment/Terrain.png" id="1_432n0"]
+[ext_resource type="PackedScene" uid="uid://pk6ubp6u20pd" path="res://scenes/bridge/Anchor.tscn" id="2_1hrej"]
+[ext_resource type="PackedScene" uid="uid://dmovlverqiyoq" path="res://scenes/bridge/FloorBeam.tscn" id="3_wnytt"]
+[ext_resource type="PackedScene" uid="uid://5rj4ygx3ai6p" path="res://scenes/bridge/BridgeBuilder.tscn" id="4_1hrej"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="LeftTerrain" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftTerrain"]
+position = Vector2(159.5, 512)
+scale = Vector2(0.180417, 0.113333)
+texture = ExtResource("1_432n0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LeftTerrain"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftTerrain/StaticBody2D"]
+position = Vector2(-11.0764, 0.00012207)
+scale = Vector2(0.930424, 1)
+build_mode = 1
+polygon = PackedVector2Array(-32, 464, 398.825, 464, 398.825, 472, 392, 488, 376, 488, 376, 648, -8, 648, -8, 496, -32, 488)
+
+[node name="RightTerrain" type="Node2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="RightTerrain"]
+position = Vector2(992.5, 512)
+scale = Vector2(0.180417, 0.113333)
+texture = ExtResource("1_432n0")
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RightTerrain"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightTerrain/StaticBody2D"]
+position = Vector2(75.7652, 6.10352e-05)
+scale = Vector2(0.942217, 1)
+build_mode = 1
+polygon = PackedVector2Array(760, 464, 768, 488, 776, 488, 776, 488, 776, 648, 1160, 648, 1160, 496, 1184, 480, 1184, 464)
+
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="FloorBeam" parent="Floor" instance=ExtResource("3_wnytt")]
+position = Vector2(414, 472)
+
+[node name="FloorBeam2" parent="Floor" instance=ExtResource("3_wnytt")]
+position = Vector2(520, 472)
+
+[node name="FloorBeam3" parent="Floor" instance=ExtResource("3_wnytt")]
+position = Vector2(628, 472)
+
+[node name="FloorBeam4" parent="Floor" instance=ExtResource("3_wnytt")]
+position = Vector2(736, 472)
+
+[node name="Anchors" type="Node2D" parent="."]
+
+[node name="Anchor" parent="Anchors" instance=ExtResource("2_1hrej")]
+position = Vector2(360, 472)
+
+[node name="Anchor2" parent="Anchors" instance=ExtResource("2_1hrej")]
+position = Vector2(467, 472)
+
+[node name="Anchor3" parent="Anchors" instance=ExtResource("2_1hrej")]
+position = Vector2(574, 472)
+
+[node name="Anchor4" parent="Anchors" instance=ExtResource("2_1hrej")]
+position = Vector2(682, 472)
+
+[node name="Anchor5" parent="Anchors" instance=ExtResource("2_1hrej")]
+position = Vector2(790, 472)
+
+[node name="Joints" type="Node2D" parent="."]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Joints"]
+position = Vector2(360, 472)
+node_a = NodePath("../../Anchors/Anchor")
+node_b = NodePath("../../Floor/FloorBeam")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Joints"]
+position = Vector2(467, 472)
+node_a = NodePath("../../Floor/FloorBeam")
+node_b = NodePath("../../Anchors/Anchor2")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="Joints"]
+position = Vector2(467, 472)
+node_a = NodePath("../../Anchors/Anchor2")
+node_b = NodePath("../../Floor/FloorBeam2")
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="Joints"]
+position = Vector2(574, 472)
+node_a = NodePath("../../Floor/FloorBeam2")
+node_b = NodePath("../../Anchors/Anchor3")
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="Joints"]
+position = Vector2(574, 472)
+node_a = NodePath("../../Anchors/Anchor3")
+node_b = NodePath("../../Floor/FloorBeam3")
+
+[node name="PinJoint2D6" type="PinJoint2D" parent="Joints"]
+position = Vector2(682, 472)
+node_a = NodePath("../../Floor/FloorBeam3")
+node_b = NodePath("../../Anchors/Anchor4")
+
+[node name="PinJoint2D7" type="PinJoint2D" parent="Joints"]
+position = Vector2(682, 472)
+node_a = NodePath("../../Anchors/Anchor4")
+node_b = NodePath("../../Floor/FloorBeam4")
+
+[node name="PinJoint2D8" type="PinJoint2D" parent="Joints"]
+position = Vector2(790, 472)
+node_a = NodePath("../../Floor/FloorBeam4")
+node_b = NodePath("../../Anchors/Anchor5")
+
+[node name="BridgeBuilder" parent="." instance=ExtResource("4_1hrej")]
