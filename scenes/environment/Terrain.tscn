@@ -16,6 +16,7 @@ region_enabled = true
 region_rect = Rect2(207.853, 725.638, 2109.07, 1613.26)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="LeftTerrain"]
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftTerrain/StaticBody2D"]
 position = Vector2(2, -2)
@@ -33,6 +34,7 @@ region_rect = Rect2(207.853, 725.638, 2109.07, 1613.26)
 region_filter_clip_enabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="RightTerrain"]
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightTerrain/StaticBody2D"]
 build_mode = 1

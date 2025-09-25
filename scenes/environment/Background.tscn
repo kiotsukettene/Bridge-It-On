@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://bykrylm7c3b5v"]
+[gd_scene load_steps=2 format=3 uid="uid://bykrylm7c3b5v"]
+
+[ext_resource type="Texture2D" uid="uid://4nrpneviwkjk" path="res://assets/sprites/environment/Background.png" id="1_3yfh5"]
 
 [node name="Background" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(584, 258.957)
+scale = Vector2(0.24, 0.28038)
+texture = ExtResource("1_3yfh5")
+region_enabled = true
+region_rect = Rect2(0, 0, 4800, 1805.75)

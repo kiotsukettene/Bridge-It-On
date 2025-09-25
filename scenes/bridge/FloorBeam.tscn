@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dodld65iu3c6y" path="res://assets/sprites/environment/FloorTexture.png" id="1_fj5xq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3i8f"]
-size = Vector2(202, 8)
+size = Vector2(103, 11.8182)
 
 [node name="FloorBeam" type="RigidBody2D"]
 collision_layer = 2
@@ -12,7 +12,7 @@ collision_mask = 8
 script = ExtResource("1_a3i8f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.193427, 0.101744)
+scale = Vector2(0.1, 0.151)
 texture = ExtResource("1_fj5xq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
