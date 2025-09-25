@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://dh2i3fjwfg82l"]
+
+[ext_resource type="Texture2D" uid="uid://bpagbf1740ib4" path="res://assets/sprites/environment/Terrain.png" id="1_b84ys"]
+[ext_resource type="PackedScene" uid="uid://pk6ubp6u20pd" path="res://scenes/bridge/Anchor.tscn" id="2_32mhh"]
+[ext_resource type="PackedScene" uid="uid://5rj4ygx3ai6p" path="res://scenes/bridge/BridgeBuilder.tscn" id="2_ohbkr"]
+[ext_resource type="Texture2D" uid="uid://ddqywyw1r7a6n" path="res://assets/sprites/environment/Narker.png" id="2_vi6ws"]
+[ext_resource type="Texture2D" uid="uid://hpoui6rjev8a" path="res://assets/sprites/environment/Marker2.png" id="3_cr8f5"]
+[ext_resource type="PackedScene" uid="uid://dmovlverqiyoq" path="res://scenes/bridge/FloorBeam.tscn" id="3_ohbkr"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="LeftTerrain" type="Node2D" parent="."]
+
+[node name="LeftTerrain" type="Sprite2D" parent="LeftTerrain"]
+position = Vector2(216, 512)
+scale = Vector2(0.230417, 0.114583)
+texture = ExtResource("1_b84ys")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LeftTerrain"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftTerrain/StaticBody2D"]
+position = Vector2(-8, 0)
+build_mode = 1
+polygon = PackedVector2Array(-16, 464, 480, 464, 480, 480, 472, 488, 464, 488, 464, 488, 464, 488, 464, 488, 464, 648, 0, 648, 0, 496, -24, 488, -24, 464)
+
+[node name="StartLineMarker" type="Sprite2D" parent="LeftTerrain"]
+position = Vector2(112, 432)
+scale = Vector2(0.102761, 0.0858734)
+texture = ExtResource("2_vi6ws")
+
+[node name="RightTerrain" type="Node2D" parent="."]
+
+[node name="RightTerrain" type="Sprite2D" parent="RightTerrain"]
+position = Vector2(929.125, 512)
+scale = Vector2(0.227604, 0.114583)
+texture = ExtResource("1_b84ys")
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RightTerrain"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightTerrain/StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(680, 464, 1176, 464, 1176, 488, 1152, 496, 1152, 648, 696, 648, 696, 488, 680, 488)
+
+[node name="FinishLineMarker" type="Sprite2D" parent="RightTerrain"]
+position = Vector2(1032, 432)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("3_cr8f5")
+
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="FloorBeam" parent="Floor" instance=ExtResource("3_ohbkr")]
+position = Vector2(523, 472)
+
+[node name="FloorBeam2" parent="Floor" instance=ExtResource("3_ohbkr")]
+position = Vector2(629, 472)
+
+[node name="Anchors" type="Node2D" parent="."]
+
+[node name="Anchor" parent="Anchors" instance=ExtResource("2_32mhh")]
+position = Vector2(472, 472)
+
+[node name="Anchor2" parent="Anchors" instance=ExtResource("2_32mhh")]
+position = Vector2(576, 472)
+
+[node name="Anchor3" parent="Anchors" instance=ExtResource("2_32mhh")]
+position = Vector2(680, 472)
+
+[node name="Joints" type="Node2D" parent="."]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Joints"]
+position = Vector2(472, 472)
+node_a = NodePath("../../Anchors/Anchor")
+node_b = NodePath("../../Floor/FloorBeam")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Joints"]
+position = Vector2(576, 472)
+node_a = NodePath("../../Floor/FloorBeam")
+node_b = NodePath("../../Anchors/Anchor2")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="Joints"]
+position = Vector2(576, 472)
+node_a = NodePath("../../Anchors/Anchor2")
+node_b = NodePath("../../Floor/FloorBeam2")
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="Joints"]
+position = Vector2(680, 472)
+node_a = NodePath("../../Floor/FloorBeam2")
+node_b = NodePath("../../Anchors/Anchor3")
+
+[node name="BridgeBuilder" parent="." instance=ExtResource("2_ohbkr")]
