@@ -3,6 +3,8 @@ extends Node2D
 @export var beam_scene: PackedScene   # your support Beam.tscn
 @export var anchor_scene: PackedScene # for creating new anchors if needed
 @export var snap_distance: float = 24.0
+@export var snap_to_grid: bool = true
+@export var grid_cell_size: int = 32
 
 var is_drawing := false
 var start_anchor: StaticBody2D
@@ -17,6 +19,15 @@ func _ready():
 	for anchor in get_tree().get_nodes_in_group("anchors"):
 		anchor.start_drag.connect(_on_anchor_drag_start)
 
+# Snap helper
+func _snap(pos: Vector2) -> Vector2:
+	if not snap_to_grid:
+		return pos
+	return Vector2(
+		round(pos.x / grid_cell_size) * grid_cell_size,
+		round(pos.y / grid_cell_size) * grid_cell_size
+	)
+
 func _on_anchor_drag_start(anchor: StaticBody2D):
 	start_anchor = anchor
 	is_drawing = true
@@ -26,6 +37,8 @@ func _on_anchor_drag_start(anchor: StaticBody2D):
 func _process(_delta):
 	if is_drawing:
 		var mouse_pos = get_global_mouse_position()
+		if snap_to_grid:
+			mouse_pos = _snap(mouse_pos)
 		preview_line.set_point_position(1, mouse_pos)
 
 		if Input.is_action_just_released("click"): # "click" = LMB in InputMap
@@ -34,6 +47,9 @@ func _process(_delta):
 func _finish_drawing(mouse_pos: Vector2):
 	is_drawing = false
 	preview_line.visible = false
+
+	if snap_to_grid:
+		mouse_pos = _snap(mouse_pos)
 
 	var end_anchor = _find_nearest_anchor(mouse_pos)
 	if end_anchor == null:
@@ -57,7 +73,6 @@ func _finish_drawing(mouse_pos: Vector2):
 	_make_joint(beam, end_anchor, end_anchor.global_position)
 
 	start_anchor = null
-
 
 func _find_nearest_anchor(pos: Vector2) -> StaticBody2D:
 	var nearest: StaticBody2D = null
