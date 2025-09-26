@@ -1,3 +1,75 @@
-[gd_scene format=3 uid="uid://dijjbb3ddaitj"]
+[gd_scene load_steps=8 format=3 uid="uid://dijjbb3ddaitj"]
 
-[node name="Car" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://jjmh7mhvnq3n" path="res://assets/sprites/Car/Bus.png" id="1_0cwqd"]
+[ext_resource type="Script" uid="uid://b7wpohkbtya4g" path="res://scripts/vehicles/Car.gd" id="1_s1gud"]
+[ext_resource type="Texture2D" uid="uid://dkhlvspr1y7s2" path="res://assets/sprites/Car/BusWheels.png" id="2_s1gud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbas2"]
+size = Vector2(176, 80)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tn0jf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_48c13"]
+radius = 8.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0twci"]
+
+[node name="Car" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 18
+mass = 100.0
+script = ExtResource("1_s1gud")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.686667, 0.66)
+texture = ExtResource("1_0cwqd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_cbas2")
+
+[node name="LeftWheel" type="RigidBody2D" parent="."]
+collision_layer = 8
+collision_mask = 18
+mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_tn0jf")
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftWheel"]
+position = Vector2(-45.375, 36.563)
+scale = Vector2(0.703947, 0.689102)
+texture = ExtResource("2_s1gud")
+region_enabled = true
+region_rect = Rect2(63.6197, 185.511, 38.662, 39.3924)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWheel"]
+position = Vector2(-46, 36.5)
+scale = Vector2(1.6, 1.6)
+shape = SubResource("CircleShape2D_48c13")
+
+[node name="RightWheel" type="RigidBody2D" parent="."]
+collision_layer = 8
+collision_mask = 18
+mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_0twci")
+
+[node name="Sprite2D" type="Sprite2D" parent="RightWheel"]
+position = Vector2(63, 36.563)
+scale = Vector2(0.703947, 0.689102)
+texture = ExtResource("2_s1gud")
+region_enabled = true
+region_rect = Rect2(63.6197, 185.511, 38.662, 39.3924)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWheel"]
+position = Vector2(63, 36.5)
+scale = Vector2(1.6, 1.6)
+shape = SubResource("CircleShape2D_48c13")
+
+[node name="PinJoint2D_Left" type="PinJoint2D" parent="."]
+position = Vector2(-46, 36.5)
+node_a = NodePath("..")
+node_b = NodePath("../LeftWheel")
+
+[node name="PinJoint2D_Right" type="PinJoint2D" parent="."]
+position = Vector2(63, 36.5)
+node_a = NodePath("..")
+node_b = NodePath("../RightWheel")
