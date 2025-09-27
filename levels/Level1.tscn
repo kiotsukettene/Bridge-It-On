@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://bpagbf1740ib4" path="res://assets/sprites/environment/Terrain.png" id="1_b84ys"]
 [ext_resource type="PackedScene" uid="uid://pk6ubp6u20pd" path="res://scenes/bridge/Anchor.tscn" id="2_32mhh"]
-[ext_resource type="PackedScene" uid="uid://5rj4ygx3ai6p" path="res://scenes/bridge/BridgeBuilder.tscn" id="2_ohbkr"]
 [ext_resource type="Texture2D" uid="uid://ddqywyw1r7a6n" path="res://assets/sprites/environment/Narker.png" id="2_vi6ws"]
 [ext_resource type="Texture2D" uid="uid://hpoui6rjev8a" path="res://assets/sprites/environment/Marker2.png" id="3_cr8f5"]
 [ext_resource type="PackedScene" uid="uid://dmovlverqiyoq" path="res://scenes/bridge/FloorBeam.tscn" id="3_ohbkr"]
+[ext_resource type="PackedScene" uid="uid://dijjbb3ddaitj" path="res://scenes/vehicles/Car.tscn" id="6_cr8f5"]
 
 [node name="Level1" type="Node2D"]
 
@@ -17,6 +17,8 @@ scale = Vector2(0.230417, 0.114583)
 texture = ExtResource("1_b84ys")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="LeftTerrain"]
+collision_layer = 16
+collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftTerrain/StaticBody2D"]
 position = Vector2(-8, 0)
@@ -37,6 +39,8 @@ texture = ExtResource("1_b84ys")
 flip_h = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="RightTerrain"]
+collision_layer = 16
+collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightTerrain/StaticBody2D"]
 build_mode = 1
@@ -88,4 +92,5 @@ position = Vector2(680, 472)
 node_a = NodePath("../../Floor/FloorBeam2")
 node_b = NodePath("../../Anchors/Anchor3")
 
-[node name="BridgeBuilder" parent="." instance=ExtResource("2_ohbkr")]
+[node name="Car" parent="." instance=ExtResource("6_cr8f5")]
+position = Vector2(224, 416)
