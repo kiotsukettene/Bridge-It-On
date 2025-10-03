@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://boojg1wh1amv5"]
 
 [ext_resource type="PackedScene" uid="uid://5rj4ygx3ai6p" path="res://scenes/bridge/BridgeBuilder.tscn" id="1_rbdcy"]
-[ext_resource type="Script" uid="uid://dq34dgdagyhr4" path="res://scripts/core/GridDrawer.gd" id="1_rj7qi"]
+[ext_resource type="Script" path="res://scripts/core/GridDrawer.gd" id="1_rj7qi"]
 [ext_resource type="PackedScene" uid="uid://dh2i3fjwfg82l" path="res://levels/Level1.tscn" id="2_0y155"]
 
 [node name="Game" type="Node2D"]

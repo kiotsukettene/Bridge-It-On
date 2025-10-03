@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmik0tio16jk5"
-path="res://.godot/imported/Bus.png-f8fd4b664b0f64facb0685bfed3f34c5.ctex"
+uid="uid://ch26kypf0mtub"
+path="res://.godot/imported/CarLevelSelect.png-9a0353f632d3a472c1000b520f764551.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/environment/Bus.png"
-dest_files=["res://.godot/imported/Bus.png-f8fd4b664b0f64facb0685bfed3f34c5.ctex"]
+source_file="res://assets/sprites/environment/CarLevelSelect.png"
+dest_files=["res://.godot/imported/CarLevelSelect.png-9a0353f632d3a472c1000b520f764551.ctex"]
 
 [params]
 
