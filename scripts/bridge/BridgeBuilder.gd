@@ -58,6 +58,7 @@ func _finish_drawing(mouse_pos: Vector2):
 		get_parent().add_child(end_anchor)
 		end_anchor.global_position = mouse_pos
 		end_anchor.add_to_group("anchors")
+		end_anchor.add_to_group("user_anchors")
 		end_anchor.start_drag.connect(_on_anchor_drag_start)
 
 		end_anchor.collision_layer = 1   # Anchors layer only
@@ -67,7 +68,7 @@ func _finish_drawing(mouse_pos: Vector2):
 	var beam = beam_scene.instantiate()
 	get_parent().add_child(beam)
 	beam.setup(start_anchor, end_anchor)
-
+	beam.add_to_group("user_supports")
 	# connect beam physics
 	_make_joint(beam, start_anchor, start_anchor.global_position)
 	_make_joint(beam, end_anchor, end_anchor.global_position)
@@ -90,3 +91,10 @@ func _make_joint(beam: RigidBody2D, anchor: StaticBody2D, pos: Vector2):
 	joint.node_b = anchor.get_path()
 	joint.position = pos
 	get_parent().add_child(joint)
+	
+func refresh_anchors():
+	print("🔄 Refreshing anchors...")
+	for anchor in get_tree().get_nodes_in_group("anchors"):
+		if not anchor.start_drag.is_connected(_on_anchor_drag_start):
+			anchor.start_drag.connect(_on_anchor_drag_start)
+	print("✅ Anchors connected:", get_tree().get_nodes_in_group("anchors").size())
