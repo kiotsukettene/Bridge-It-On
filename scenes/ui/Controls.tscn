@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7p7jf70m84jo"]
+
+[ext_resource type="Texture2D" uid="uid://bx5x1do3occwv" path="res://assets/sprites/ui/Play.png" id="1_empr4"]
+[ext_resource type="Script" uid="uid://chwdepdaklhcf" path="res://scripts/ui/Controls.gd" id="1_neoqp"]
+[ext_resource type="Texture2D" uid="uid://ksoxobgf3fwc" path="res://assets/sprites/ui/Pause.png" id="2_ya2rr"]
+[ext_resource type="Texture2D" uid="uid://lbeqhy3d0jy8" path="res://assets/sprites/ui/reset.png" id="3_1yfo7"]
+[ext_resource type="Texture2D" uid="uid://dd0mydc1cclid" path="res://assets/sprites/ui/Erase.png" id="4_lhur5"]
+
+[node name="Controls" type="CanvasLayer"]
+script = ExtResource("1_neoqp")
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 1064.0
+offset_top = 32.0
+offset_right = 1120.0
+offset_bottom = 88.0
+icon = ExtResource("1_empr4")
+icon_alignment = 1
+expand_icon = true
+
+[node name="PauseButton" type="Button" parent="."]
+offset_left = 1064.0
+offset_top = 104.0
+offset_right = 1120.0
+offset_bottom = 160.0
+icon = ExtResource("2_ya2rr")
+expand_icon = true
+
+[node name="EraseButton" type="Button" parent="."]
+offset_left = 1064.0
+offset_top = 176.0
+offset_right = 1120.0
+offset_bottom = 232.0
+icon = ExtResource("4_lhur5")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ResetButton" type="Button" parent="."]
+offset_left = 1064.0
+offset_top = 248.0
+offset_right = 1120.0
+offset_bottom = 304.0
+icon = ExtResource("3_1yfo7")
+icon_alignment = 1
+expand_icon = true

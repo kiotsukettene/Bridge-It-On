@@ -1,16 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://boojg1wh1amv5"]
+[gd_scene load_steps=5 format=3 uid="uid://boojg1wh1amv5"]
 
+[ext_resource type="Script" uid="uid://sjksm1mg3877" path="res://scripts/core/Game.gd" id="1_15kd6"]
 [ext_resource type="PackedScene" uid="uid://5rj4ygx3ai6p" path="res://scenes/bridge/BridgeBuilder.tscn" id="1_rbdcy"]
-[ext_resource type="Script" path="res://scripts/core/GridDrawer.gd" id="1_rj7qi"]
-[ext_resource type="PackedScene" uid="uid://dh2i3fjwfg82l" path="res://levels/Level1.tscn" id="2_0y155"]
+[ext_resource type="Script" uid="uid://dq34dgdagyhr4" path="res://scripts/core/GridDrawer.gd" id="1_rj7qi"]
+[ext_resource type="PackedScene" uid="uid://c7p7jf70m84jo" path="res://scenes/ui/Controls.tscn" id="4_j4klc"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_15kd6")
 
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("1_rj7qi")
 
 [node name="LevelContainer" type="Node2D" parent="."]
 
-[node name="Level1" parent="LevelContainer" instance=ExtResource("2_0y155")]
-
 [node name="BridgeBuilder" parent="." instance=ExtResource("1_rbdcy")]
+
+[node name="Controls" parent="." instance=ExtResource("4_j4klc")]
