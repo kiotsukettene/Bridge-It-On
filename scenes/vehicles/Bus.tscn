@@ -1,3 +1,66 @@
-[gd_scene format=3 uid="uid://c5c11gku1su0n"]
+[gd_scene load_steps=6 format=3 uid="uid://c5c11gku1su0n"]
 
-[node name="Bus" type="Node2D"]
+[ext_resource type="Script" uid="uid://ddmtam7ysbaxb" path="res://scripts/vehicles/Bus.gd" id="1_61kbu"]
+[ext_resource type="Texture2D" uid="uid://dmbdpvqw2hfkw" path="res://assets/sprites/Car/Bus.png" id="1_egqvi"]
+[ext_resource type="Texture2D" uid="uid://dkhlvspr1y7s2" path="res://assets/sprites/Car/BusWheels.png" id="2_61kbu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61kbu"]
+size = Vector2(192, 80)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fi7g5"]
+radius = 11.3728
+
+[node name="Bus" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 18
+script = ExtResource("1_61kbu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.039)
+texture = ExtResource("1_egqvi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_61kbu")
+
+[node name="LeftWheel" type="RigidBody2D" parent="."]
+collision_layer = 8
+collision_mask = 18
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftWheel"]
+position = Vector2(-42, 30)
+scale = Vector2(0.758333, 0.758333)
+texture = ExtResource("2_61kbu")
+region_enabled = true
+region_rect = Rect2(62.7031, 185.75, 39.3137, 39.5043)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWheel"]
+position = Vector2(-41.5, 30)
+scale = Vector2(1.3, 1.3)
+shape = SubResource("CircleShape2D_fi7g5")
+
+[node name="RightWheel" type="RigidBody2D" parent="."]
+collision_layer = 8
+collision_mask = 18
+
+[node name="Sprite2D" type="Sprite2D" parent="RightWheel"]
+position = Vector2(66, 30)
+scale = Vector2(0.758, 0.758)
+texture = ExtResource("2_61kbu")
+region_enabled = true
+region_rect = Rect2(62.7031, 185.75, 39.3137, 39.5043)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWheel"]
+position = Vector2(66.5, 30)
+scale = Vector2(1.3, 1.3)
+shape = SubResource("CircleShape2D_fi7g5")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(-41.5, 30)
+node_a = NodePath("..")
+node_b = NodePath("../LeftWheel")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(66, 30)
+node_a = NodePath("..")
+node_b = NodePath("../RightWheel")
