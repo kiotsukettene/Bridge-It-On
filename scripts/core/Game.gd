@@ -31,10 +31,24 @@ func _on_play_pressed():
 	get_tree().paused = false
 	for v in get_tree().get_nodes_in_group("vehicles"):
 		v.driving = true
+		
+	for beam in get_tree().get_nodes_in_group("user_supports"):
+		if beam.has_method("set_build_mode"):
+			beam.set_build_mode(false)
+
+	for anchor in get_tree().get_nodes_in_group("anchors"):
+		if anchor.has_method("set_build_mode"):
+			anchor.set_build_mode(false)
 
 func _on_pause_pressed():
 	for v in get_tree().get_nodes_in_group("vehicles"):
 		v.driving = false
+	for beam in get_tree().get_nodes_in_group("user_supports"):
+		if beam.has_method("set_build_mode"):
+			beam.set_build_mode(true)
+	for anchor in get_tree().get_nodes_in_group("anchors"):
+		if anchor.has_method("set_build_mode"):
+			anchor.set_build_mode(true)
 
 func _on_erase_pressed():
 	_erase_user_supports()
@@ -51,3 +65,10 @@ func _erase_user_supports():
 func _on_reset_pressed():
 	load_level("res://levels/Level1.tscn")
 	_erase_user_supports()
+	
+	for beam in get_tree().get_nodes_in_group("user_supports"):
+		if beam.has_method("set_build_mode"):
+			beam.set_build_mode(true)
+	for anchor in get_tree().get_nodes_in_group("anchors"):
+		if anchor.has_method("set_build_mode"):
+			anchor.set_build_mode(true)

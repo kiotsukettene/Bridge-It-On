@@ -7,11 +7,10 @@ extends Node2D
 @export var grid_cell_size: int = 32
 
 var is_drawing := false
-var start_anchor: StaticBody2D
+var start_anchor: RigidBody2D
 var preview_line: Line2D
 
 func _ready():
-	# Assume a Line2D is a child for preview
 	preview_line = $Line2D
 	preview_line.visible = false
 
@@ -28,7 +27,7 @@ func _snap(pos: Vector2) -> Vector2:
 		round(pos.y / grid_cell_size) * grid_cell_size
 	)
 
-func _on_anchor_drag_start(anchor: StaticBody2D):
+func _on_anchor_drag_start(anchor: RigidBody2D):
 	start_anchor = anchor
 	is_drawing = true
 	preview_line.visible = true
@@ -41,7 +40,7 @@ func _process(_delta):
 			mouse_pos = _snap(mouse_pos)
 		preview_line.set_point_position(1, mouse_pos)
 
-		if Input.is_action_just_released("click"): # "click" = LMB in InputMap
+		if Input.is_action_just_released("click"):
 			_finish_drawing(mouse_pos)
 
 func _finish_drawing(mouse_pos: Vector2):
@@ -53,30 +52,29 @@ func _finish_drawing(mouse_pos: Vector2):
 
 	var end_anchor = _find_nearest_anchor(mouse_pos)
 	if end_anchor == null:
-		# create new anchor at release point
 		end_anchor = anchor_scene.instantiate()
 		get_parent().add_child(end_anchor)
 		end_anchor.global_position = mouse_pos
 		end_anchor.add_to_group("anchors")
 		end_anchor.add_to_group("user_anchors")
 		end_anchor.start_drag.connect(_on_anchor_drag_start)
-
-		end_anchor.collision_layer = 1   # Anchors layer only
-		end_anchor.collision_mask = 0    # No collisions
+		end_anchor.collision_layer = 1
+		end_anchor.collision_mask = 0
 
 	# create beam
 	var beam = beam_scene.instantiate()
 	get_parent().add_child(beam)
 	beam.setup(start_anchor, end_anchor)
 	beam.add_to_group("user_supports")
+
 	# connect beam physics
 	_make_joint(beam, start_anchor, start_anchor.global_position)
 	_make_joint(beam, end_anchor, end_anchor.global_position)
 
 	start_anchor = null
 
-func _find_nearest_anchor(pos: Vector2) -> StaticBody2D:
-	var nearest: StaticBody2D = null
+func _find_nearest_anchor(pos: Vector2) -> RigidBody2D:
+	var nearest: RigidBody2D = null
 	var best_dist = snap_distance
 	for anchor in get_tree().get_nodes_in_group("anchors"):
 		var dist = anchor.global_position.distance_to(pos)
@@ -85,13 +83,13 @@ func _find_nearest_anchor(pos: Vector2) -> StaticBody2D:
 			nearest = anchor
 	return nearest
 
-func _make_joint(beam: RigidBody2D, anchor: StaticBody2D, pos: Vector2):
+func _make_joint(beam: RigidBody2D, anchor: RigidBody2D, pos: Vector2):
 	var joint := PinJoint2D.new()
 	joint.node_a = beam.get_path()
 	joint.node_b = anchor.get_path()
 	joint.position = pos
 	get_parent().add_child(joint)
-	
+
 func refresh_anchors():
 	print("🔄 Refreshing anchors...")
 	for anchor in get_tree().get_nodes_in_group("anchors"):
