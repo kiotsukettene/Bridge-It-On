@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dphihqeephl73"]
+[gd_scene load_steps=5 format=3 uid="uid://dphihqeephl73"]
 
 [ext_resource type="Texture2D" uid="uid://bpagbf1740ib4" path="res://assets/sprites/environment/Terrain.png" id="1_r8psn"]
 [ext_resource type="PackedScene" uid="uid://pk6ubp6u20pd" path="res://scenes/bridge/Anchor.tscn" id="2_3ns6d"]
 [ext_resource type="PackedScene" uid="uid://dmovlverqiyoq" path="res://scenes/bridge/FloorBeam.tscn" id="3_mmhpo"]
+[ext_resource type="PackedScene" uid="uid://blomw8ppriu3e" path="res://scenes/vehicles/Truck.tscn" id="4_3ns6d"]
 
 [node name="Level3" type="Node2D"]
 
@@ -143,3 +144,6 @@ node_b = NodePath("../../Floor/FloorBeam6")
 position = Vector2(904, 472)
 node_a = NodePath("../../Floor/FloorBeam6")
 node_b = NodePath("../../Anchors/Anchor7")
+
+[node name="Truck" parent="." instance=ExtResource("4_3ns6d")]
+position = Vector2(120, 379)
