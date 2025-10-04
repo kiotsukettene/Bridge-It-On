@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jgci6q8dwmxg"
-path="res://.godot/imported/truckWheels.png-361386540cb12368d5ee5f37ecfcbe6c.ctex"
+uid="uid://bx5x1do3occwv"
+path="res://.godot/imported/Play.png-68c5d61b28b1313cb61737db67858c70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/environment/truckWheels.png"
-dest_files=["res://.godot/imported/truckWheels.png-361386540cb12368d5ee5f37ecfcbe6c.ctex"]
+source_file="res://assets/sprites/ui/Play.png"
+dest_files=["res://.godot/imported/Play.png-68c5d61b28b1313cb61737db67858c70.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmbdpvqw2hfkw"
-path="res://.godot/imported/Bus.png-5c39451d2612a53216b714a49e0eab87.ctex"
+uid="uid://dd0mydc1cclid"
+path="res://.godot/imported/Erase.png-7083b7fde8bd39acb715a14bd5b3ec79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Car/Bus.png"
-dest_files=["res://.godot/imported/Bus.png-5c39451d2612a53216b714a49e0eab87.ctex"]
+source_file="res://assets/sprites/ui/Erase.png"
+dest_files=["res://.godot/imported/Erase.png-7083b7fde8bd39acb715a14bd5b3ec79.ctex"]
 
 [params]
 

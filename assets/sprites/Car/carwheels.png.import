@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmbdpvqw2hfkw"
-path="res://.godot/imported/Bus.png-5c39451d2612a53216b714a49e0eab87.ctex"
+uid="uid://d2w6712guc5ch"
+path="res://.godot/imported/carwheels.png-0d3b70b038486fd6aeafaf8ef800a4df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Car/Bus.png"
-dest_files=["res://.godot/imported/Bus.png-5c39451d2612a53216b714a49e0eab87.ctex"]
+source_file="res://assets/sprites/Car/carwheels.png"
+dest_files=["res://.godot/imported/carwheels.png-0d3b70b038486fd6aeafaf8ef800a4df.ctex"]
 
 [params]
 
