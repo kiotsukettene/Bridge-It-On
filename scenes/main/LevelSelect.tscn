@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgh1e720lk87k"]
+[gd_scene load_steps=7 format=3 uid="uid://bgh1e720lk87k"]
 
 [ext_resource type="Script" uid="uid://dvgr7j38qinkx" path="res://scripts/core/LevelManager.gd" id="1_sdic3"]
 [ext_resource type="Texture2D" uid="uid://ch26kypf0mtub" path="res://assets/sprites/environment/CarLevelSelect.png" id="1_v565k"]
+[ext_resource type="Texture2D" uid="uid://dapkc2rjf1l44" path="res://assets/sprites/environment/bg-v2.png" id="2_cq6lx"]
 [ext_resource type="Texture2D" uid="uid://0h5si7gomstd" path="res://assets/sprites/environment/busLevelSelect.png" id="2_sdic3"]
 [ext_resource type="Texture2D" uid="uid://d21txq716ngys" path="res://assets/sprites/environment/truckLevelSelect.png" id="3_horsu"]
 [ext_resource type="Texture2D" uid="uid://odut3vc8exdo" path="res://assets/sprites/environment/back.png" id="5_horsu"]
@@ -10,35 +11,42 @@
 position = Vector2(2, -24)
 script = ExtResource("1_sdic3")
 
+[node name="Bg-v2" type="Sprite2D" parent="."]
+modulate = Color(0.921569, 1, 1, 0.501961)
+position = Vector2(574.893, 378)
+scale = Vector2(0.574106, 0.573518)
+texture = ExtResource("2_cq6lx")
+
 [node name="ButtonCar" type="Button" parent="."]
 offset_left = 104.0
-offset_top = 159.0
+offset_top = 174.0
 offset_right = 383.0
-offset_bottom = 553.0
+offset_bottom = 568.0
 flat = true
 
 [node name="CarLevelSelect" type="Sprite2D" parent="ButtonCar"]
-position = Vector2(139, 198)
+position = Vector2(139, 197)
 scale = Vector2(0.175095, 0.175095)
 texture = ExtResource("1_v565k")
 
 [node name="ButtonBus" type="Button" parent="."]
 offset_left = 432.0
-offset_top = 163.0
+offset_top = 178.0
 offset_right = 712.0
-offset_bottom = 557.0
+offset_bottom = 572.0
 flat = true
 
 [node name="BusLevelSelect" type="Sprite2D" parent="ButtonBus"]
-position = Vector2(137, 195)
+position = Vector2(136, 195)
 scale = Vector2(0.175095, 0.175094)
 texture = ExtResource("2_sdic3")
 
 [node name="ButtonTruck" type="Button" parent="."]
 offset_left = 760.0
-offset_top = 159.0
+offset_top = 174.0
 offset_right = 1041.0
-offset_bottom = 551.0
+offset_bottom = 566.0
+flat = true
 
 [node name="TruckLevelSelect" type="Sprite2D" parent="ButtonTruck"]
 position = Vector2(140, 197)
@@ -53,6 +61,6 @@ offset_bottom = 103.0
 flat = true
 
 [node name="Back" type="Sprite2D" parent="BackButton"]
-position = Vector2(35, 35)
+position = Vector2(35, 50)
 scale = Vector2(0.0461025, 0.0461025)
 texture = ExtResource("5_horsu")
