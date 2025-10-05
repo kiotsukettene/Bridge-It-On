@@ -10,6 +10,7 @@ radius = 16.7498
 [node name="Truck" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 18
+mass = 15.0
 script = ExtResource("1_vnsw7")
 
 [node name="Truck" type="Sprite2D" parent="."]
