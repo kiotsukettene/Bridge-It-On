@@ -5,19 +5,42 @@ extends RigidBody2D
 
 var anchor_a: RigidBody2D
 var anchor_b: RigidBody2D
-var build_mode := true   # True = frozen until Play pressed
+var build_mode := true
+var build_material := "wood"
+
+# Fixed thickness by material (only affects Y)
+const MATERIAL_THICKNESS := {
+	"wood": 0.127,
+	"metal": 0.2
+}
+
+const FIXED_SCALE_X := 1.0  # keep texture width 1:1, don't compress/stretch
+
+const TEXTURES := {
+	"wood": preload("res://assets/sprites/environment/Wood_Texture.png"),
+	"metal": preload("res://assets/sprites/environment/Metal_Texture.png")
+}
 
 func _ready():
 	if not is_in_group("user_supports"):
 		add_to_group("user_supports")
 
 	set_build_mode(true)
+	apply_build_material()
 
 
-func setup(a: RigidBody2D, b: RigidBody2D):
+func setup(a: RigidBody2D, b: RigidBody2D, mat_type: String = "wood"):
 	anchor_a = a
 	anchor_b = b
+	build_material = mat_type
+	apply_build_material()
 	_update_transform()
+
+
+func apply_build_material():
+	var tex: Texture2D = TEXTURES.get(build_material, TEXTURES["wood"])
+	sprite.texture = tex
+	sprite.scale = Vector2(FIXED_SCALE_X, MATERIAL_THICKNESS.get(build_material, 0.127))
 
 
 func _update_transform():
@@ -27,18 +50,18 @@ func _update_transform():
 	var pos_a = anchor_a.global_position
 	var pos_b = anchor_b.global_position
 
-
 	global_position = (pos_a + pos_b) * 0.5
 	rotation = (pos_b - pos_a).angle()
 
 	var length = pos_a.distance_to(pos_b)
-	sprite.scale.x = length / sprite.texture.get_width()
+	var height = sprite.texture.get_height() * sprite.scale.y
 
-	var margin := 8.0  
-	var collision_length = max(length - margin, 0.0)
+	# Instead of scaling texture horizontally, resize collision + sprite region
+	sprite.region_enabled = true
+	sprite.region_rect = Rect2(0, 0, length / sprite.scale.x, sprite.texture.get_height())
 
 	var rect := RectangleShape2D.new()
-	rect.size = Vector2(collision_length, sprite.texture.get_height())
+	rect.size = Vector2(length, height)
 	collision.shape = rect
 
 

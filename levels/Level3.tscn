@@ -40,6 +40,26 @@ position = Vector2(112, 0)
 build_mode = 1
 polygon = PackedVector2Array(792, 464, 792, 488, 808, 488, 808, 648, 1168, 648, 1168, 496, 1184, 488, 1184, 464)
 
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="FloorBeam" parent="Floor" instance=ExtResource("3_mmhpo")]
+position = Vector2(320, 472)
+
+[node name="FloorBeam2" parent="Floor" instance=ExtResource("3_mmhpo")]
+position = Vector2(426, 472)
+
+[node name="FloorBeam3" parent="Floor" instance=ExtResource("3_mmhpo")]
+position = Vector2(532, 472)
+
+[node name="FloorBeam4" parent="Floor" instance=ExtResource("3_mmhpo")]
+position = Vector2(638, 472)
+
+[node name="FloorBeam5" parent="Floor" instance=ExtResource("3_mmhpo")]
+position = Vector2(744, 472)
+
+[node name="FloorBeam6" parent="Floor" instance=ExtResource("3_mmhpo")]
+position = Vector2(850, 472)
+
 [node name="Anchors" type="Node2D" parent="."]
 
 [node name="Anchor" parent="Anchors" instance=ExtResource("2_3ns6d")]
@@ -63,32 +83,17 @@ position = Vector2(797, 472)
 [node name="Anchor7" parent="Anchors" instance=ExtResource("2_3ns6d")]
 position = Vector2(903, 472)
 
-[node name="Floor" type="Node2D" parent="."]
-
-[node name="FloorBeam" parent="Floor" instance=ExtResource("3_mmhpo")]
-position = Vector2(320, 472)
-
-[node name="FloorBeam2" parent="Floor" instance=ExtResource("3_mmhpo")]
-position = Vector2(426, 472)
-
-[node name="FloorBeam3" parent="Floor" instance=ExtResource("3_mmhpo")]
-position = Vector2(532, 472)
-
-[node name="FloorBeam4" parent="Floor" instance=ExtResource("3_mmhpo")]
-position = Vector2(638, 472)
-
-[node name="FloorBeam5" parent="Floor" instance=ExtResource("3_mmhpo")]
-position = Vector2(744, 472)
-
-[node name="FloorBeam6" parent="Floor" instance=ExtResource("3_mmhpo")]
-position = Vector2(850, 472)
-
 [node name="Joints" type="Node2D" parent="."]
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Joints"]
 position = Vector2(266, 472)
 node_a = NodePath("../../Anchors/Anchor")
 node_b = NodePath("../../Floor/FloorBeam")
+
+[node name="AnchorToTerrain" type="PinJoint2D" parent="Joints"]
+position = Vector2(266, 472)
+node_a = NodePath("../../LeftTerrain/StaticBody2D")
+node_b = NodePath("../../Anchors/Anchor")
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="Joints"]
 position = Vector2(373, 472)
@@ -144,6 +149,11 @@ node_b = NodePath("../../Floor/FloorBeam6")
 position = Vector2(904, 472)
 node_a = NodePath("../../Floor/FloorBeam6")
 node_b = NodePath("../../Anchors/Anchor7")
+
+[node name="AnchorToTerrain2" type="PinJoint2D" parent="Joints"]
+position = Vector2(904, 472)
+node_a = NodePath("../../Anchors/Anchor7")
+node_b = NodePath("../../RightTerrain/StaticBody2D")
 
 [node name="Truck" parent="." instance=ExtResource("4_3ns6d")]
 position = Vector2(120, 379)

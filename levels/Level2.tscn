@@ -80,6 +80,11 @@ position = Vector2(360, 472)
 node_a = NodePath("../../Anchors/Anchor")
 node_b = NodePath("../../Floor/FloorBeam")
 
+[node name="PinJoint2D9" type="PinJoint2D" parent="Joints"]
+position = Vector2(360, 472)
+node_a = NodePath("../../LeftTerrain/StaticBody2D")
+node_b = NodePath("../../Anchors/Anchor")
+
 [node name="PinJoint2D2" type="PinJoint2D" parent="Joints"]
 position = Vector2(467, 472)
 node_a = NodePath("../../Floor/FloorBeam")
@@ -114,6 +119,11 @@ node_b = NodePath("../../Floor/FloorBeam4")
 position = Vector2(790, 472)
 node_a = NodePath("../../Floor/FloorBeam4")
 node_b = NodePath("../../Anchors/Anchor5")
+
+[node name="PinJoint2D10" type="PinJoint2D" parent="Joints"]
+position = Vector2(790, 472)
+node_a = NodePath("../../Anchors/Anchor5")
+node_b = NodePath("../../RightTerrain/StaticBody2D")
 
 [node name="Bus" parent="." instance=ExtResource("4_1hrej")]
 position = Vector2(128, 424)

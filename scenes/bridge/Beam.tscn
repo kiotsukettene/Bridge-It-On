@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://o87nfab2yokm"]
 
-[ext_resource type="Texture2D" uid="uid://e2nix6tbd8ek" path="res://assets/sprites/environment/WoodTexture.png" id="1_dw57l"]
 [ext_resource type="Script" uid="uid://ckqf1k44ac4lc" path="res://scripts/bridge/Beam.gd" id="1_q8vln"]
+[ext_resource type="Texture2D" uid="uid://ddjb35wwsm5hc" path="res://assets/sprites/environment/Wood_Texture.png" id="2_q8vln"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8vln"]
 size = Vector2(66, 8)
@@ -11,8 +11,9 @@ collision_layer = 4
 script = ExtResource("1_q8vln")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.111298, 0.194973)
-texture = ExtResource("1_dw57l")
+position = Vector2(4.76837e-07, -1.19209e-07)
+scale = Vector2(0.096, 0.127)
+texture = ExtResource("2_q8vln")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_q8vln")

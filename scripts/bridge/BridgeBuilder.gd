@@ -1,11 +1,12 @@
 extends Node2D
 
-@export var beam_scene: PackedScene   # your support Beam.tscn
-@export var anchor_scene: PackedScene # for creating new anchors if needed
+@export var beam_scene: PackedScene
+@export var anchor_scene: PackedScene
 @export var snap_distance: float = 24.0
 @export var snap_to_grid: bool = true
 @export var grid_cell_size: int = 32
 
+var current_material: String = "wood"
 var is_drawing := false
 var start_anchor: RigidBody2D
 var preview_line: Line2D
@@ -14,11 +15,16 @@ func _ready():
 	preview_line = $Line2D
 	preview_line.visible = false
 
-	# Connect all anchors in scene
 	for anchor in get_tree().get_nodes_in_group("anchors"):
-		anchor.start_drag.connect(_on_anchor_drag_start)
+		if not anchor.start_drag.is_connected(_on_anchor_drag_start):
+			anchor.start_drag.connect(_on_anchor_drag_start)
 
-# Snap helper
+
+func set_build_material(material_type: String):
+	current_material = material_type
+	print("🪵 BridgeBuilder: material set to", material_type)
+
+
 func _snap(pos: Vector2) -> Vector2:
 	if not snap_to_grid:
 		return pos
@@ -27,11 +33,13 @@ func _snap(pos: Vector2) -> Vector2:
 		round(pos.y / grid_cell_size) * grid_cell_size
 	)
 
+
 func _on_anchor_drag_start(anchor: RigidBody2D):
 	start_anchor = anchor
 	is_drawing = true
 	preview_line.visible = true
 	preview_line.points = [anchor.global_position, anchor.global_position]
+
 
 func _process(_delta):
 	if is_drawing:
@@ -42,6 +50,7 @@ func _process(_delta):
 
 		if Input.is_action_just_released("click"):
 			_finish_drawing(mouse_pos)
+
 
 func _finish_drawing(mouse_pos: Vector2):
 	is_drawing = false
@@ -61,17 +70,16 @@ func _finish_drawing(mouse_pos: Vector2):
 		end_anchor.collision_layer = 1
 		end_anchor.collision_mask = 0
 
-	# create beam
 	var beam = beam_scene.instantiate()
 	get_parent().add_child(beam)
-	beam.setup(start_anchor, end_anchor)
+	beam.setup(start_anchor, end_anchor, current_material)
 	beam.add_to_group("user_supports")
 
-	# connect beam physics
 	_make_joint(beam, start_anchor, start_anchor.global_position)
 	_make_joint(beam, end_anchor, end_anchor.global_position)
 
 	start_anchor = null
+
 
 func _find_nearest_anchor(pos: Vector2) -> RigidBody2D:
 	var nearest: RigidBody2D = null
@@ -83,12 +91,14 @@ func _find_nearest_anchor(pos: Vector2) -> RigidBody2D:
 			nearest = anchor
 	return nearest
 
+
 func _make_joint(beam: RigidBody2D, anchor: RigidBody2D, pos: Vector2):
 	var joint := PinJoint2D.new()
 	joint.node_a = beam.get_path()
 	joint.node_b = anchor.get_path()
 	joint.position = pos
 	get_parent().add_child(joint)
+
 
 func refresh_anchors():
 	print("🔄 Refreshing anchors...")

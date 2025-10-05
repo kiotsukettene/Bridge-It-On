@@ -7,11 +7,13 @@
 radius = 13.0384
 
 [node name="Anchor" type="RigidBody2D"]
+z_index = 5
 collision_mask = 4
 input_pickable = true
 script = ExtResource("1_sho14")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.340339, 0.340339, 0.340339, 1)
 scale = Vector2(0.246094, 0.244141)
 texture = ExtResource("1_x5ldi")
 
