@@ -15,6 +15,11 @@ run/main_scene="uid://cf0wdllgt1hl5"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Music="*res://scripts/Sounds/Music.gd"
+ButtonSound="*res://sounds/ButtonSound.tscn"
+
 [dotnet]
 
 project/assembly_name="Bridge It On"
