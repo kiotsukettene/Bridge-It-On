@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dh2i3fjwfg82l"]
+[gd_scene load_steps=8 format=3 uid="uid://dh2i3fjwfg82l"]
 
 [ext_resource type="Texture2D" uid="uid://bpagbf1740ib4" path="res://assets/sprites/environment/Terrain.png" id="1_b84ys"]
+[ext_resource type="Script" uid="uid://h0nip2gvveod" path="res://scripts/levels/Level1.gd" id="1_gqfrg"]
 [ext_resource type="PackedScene" uid="uid://pk6ubp6u20pd" path="res://scenes/bridge/Anchor.tscn" id="2_32mhh"]
 [ext_resource type="Texture2D" uid="uid://ddqywyw1r7a6n" path="res://assets/sprites/environment/Narker.png" id="2_vi6ws"]
 [ext_resource type="Texture2D" uid="uid://hpoui6rjev8a" path="res://assets/sprites/environment/Marker2.png" id="3_cr8f5"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dijjbb3ddaitj" path="res://scenes/vehicles/Car.tscn" id="6_cr8f5"]
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_gqfrg")
 
 [node name="LeftTerrain" type="Node2D" parent="."]
 
@@ -76,31 +78,39 @@ position = Vector2(680, 472)
 position = Vector2(472, 472)
 node_a = NodePath("../../Anchors/Anchor")
 node_b = NodePath("../../Floor/FloorBeam")
+bias = 0.9
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="Joints"]
 position = Vector2(576, 472)
 node_a = NodePath("../../Floor/FloorBeam")
 node_b = NodePath("../../Anchors/Anchor2")
+bias = 0.9
+softness = 0.19
 
 [node name="PinJoint2D3" type="PinJoint2D" parent="Joints"]
 position = Vector2(576, 472)
 node_a = NodePath("../../Anchors/Anchor2")
 node_b = NodePath("../../Floor/FloorBeam2")
+bias = 0.9
+softness = 0.01
 
 [node name="PinJoint2D4" type="PinJoint2D" parent="Joints"]
 position = Vector2(680, 472)
 node_a = NodePath("../../Floor/FloorBeam2")
 node_b = NodePath("../../Anchors/Anchor3")
+bias = 0.9
 
 [node name="PinJoint2D6" type="PinJoint2D" parent="Joints"]
 position = Vector2(680, 472)
 node_a = NodePath("../../Anchors/Anchor3")
 node_b = NodePath("../../RightTerrain/StaticBody2D")
+bias = 0.9
 
 [node name="PinJoint2D5" type="PinJoint2D" parent="Joints"]
 position = Vector2(472, 472)
 node_a = NodePath("../../LeftTerrain/StaticBody2D")
 node_b = NodePath("../../Anchors/Anchor")
+bias = 0.9
 
 [node name="Car" parent="." instance=ExtResource("6_cr8f5")]
 position = Vector2(224, 416)

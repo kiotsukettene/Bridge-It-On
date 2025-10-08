@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dphihqeephl73"]
+[gd_scene load_steps=6 format=3 uid="uid://dphihqeephl73"]
 
+[ext_resource type="Script" uid="uid://rxvbbb5md62s" path="res://scripts/levels/Level3.gd" id="1_mmhpo"]
 [ext_resource type="Texture2D" uid="uid://bpagbf1740ib4" path="res://assets/sprites/environment/Terrain.png" id="1_r8psn"]
 [ext_resource type="PackedScene" uid="uid://pk6ubp6u20pd" path="res://scenes/bridge/Anchor.tscn" id="2_3ns6d"]
 [ext_resource type="PackedScene" uid="uid://dmovlverqiyoq" path="res://scenes/bridge/FloorBeam.tscn" id="3_mmhpo"]
 [ext_resource type="PackedScene" uid="uid://blomw8ppriu3e" path="res://scenes/vehicles/Truck.tscn" id="4_3ns6d"]
 
 [node name="Level3" type="Node2D"]
+script = ExtResource("1_mmhpo")
 
 [node name="LeftTerrain" type="Node2D" parent="."]
 
@@ -85,72 +87,72 @@ position = Vector2(903, 472)
 
 [node name="Joints" type="Node2D" parent="."]
 
-[node name="PinJoint2D" type="PinJoint2D" parent="Joints"]
+[node name="PinJoint2D" type="PinJoint2D" parent="Joints" groups=["pin_joints"]]
 position = Vector2(266, 472)
 node_a = NodePath("../../Anchors/Anchor")
 node_b = NodePath("../../Floor/FloorBeam")
 
-[node name="AnchorToTerrain" type="PinJoint2D" parent="Joints"]
+[node name="AnchorToTerrain" type="PinJoint2D" parent="Joints" groups=["pin_joints"]]
 position = Vector2(266, 472)
 node_a = NodePath("../../LeftTerrain/StaticBody2D")
 node_b = NodePath("../../Anchors/Anchor")
 
-[node name="PinJoint2D2" type="PinJoint2D" parent="Joints"]
+[node name="PinJoint2D2" type="PinJoint2D" parent="Joints" groups=["pin_joints"]]
 position = Vector2(373, 472)
 node_a = NodePath("../../Floor/FloorBeam")
 node_b = NodePath("../../Anchors/Anchor2")
 
-[node name="PinJoint2D3" type="PinJoint2D" parent="Joints"]
+[node name="PinJoint2D3" type="PinJoint2D" parent="Joints" groups=["pin_joints"]]
 position = Vector2(373, 472)
 node_a = NodePath("../../Anchors/Anchor2")
 node_b = NodePath("../../Floor/FloorBeam2")
 
-[node name="PinJoint2D4" type="PinJoint2D" parent="Joints"]
+[node name="PinJoint2D4" type="PinJoint2D" parent="Joints" groups=["pin_joints"]]
 position = Vector2(479, 472)
 node_a = NodePath("../../Floor/FloorBeam2")
 node_b = NodePath("../../Anchors/Anchor3")
 
-[node name="PinJoint2D5" type="PinJoint2D" parent="Joints"]
+[node name="PinJoint2D5" type="PinJoint2D" parent="Joints" groups=["pin_joints"]]
 position = Vector2(479, 472)
 node_a = NodePath("../../Anchors/Anchor3")
 node_b = NodePath("../../Floor/FloorBeam3")
 
-[node name="PinJoint2D6" type="PinJoint2D" parent="Joints"]
+[node name="PinJoint2D6" type="PinJoint2D" parent="Joints" groups=["pin_joints"]]
 position = Vector2(585, 472)
 node_a = NodePath("../../Floor/FloorBeam3")
 node_b = NodePath("../../Anchors/Anchor4")
 
-[node name="PinJoint2D7" type="PinJoint2D" parent="Joints"]
+[node name="PinJoint2D7" type="PinJoint2D" parent="Joints" groups=["pin_joints"]]
 position = Vector2(585, 472)
 node_a = NodePath("../../Anchors/Anchor4")
 node_b = NodePath("../../Floor/FloorBeam4")
 
-[node name="PinJoint2D8" type="PinJoint2D" parent="Joints"]
+[node name="PinJoint2D8" type="PinJoint2D" parent="Joints" groups=["pin_joints"]]
 position = Vector2(691, 472)
 node_a = NodePath("../../Floor/FloorBeam4")
 node_b = NodePath("../../Anchors/Anchor5")
 
-[node name="PinJoint2D9" type="PinJoint2D" parent="Joints"]
+[node name="PinJoint2D9" type="PinJoint2D" parent="Joints" groups=["pin_joints"]]
 position = Vector2(691, 472)
 node_a = NodePath("../../Anchors/Anchor5")
 node_b = NodePath("../../Floor/FloorBeam5")
 
-[node name="PinJoint2D10" type="PinJoint2D" parent="Joints"]
+[node name="PinJoint2D10" type="PinJoint2D" parent="Joints" groups=["pin_joints"]]
 position = Vector2(797, 472)
 node_a = NodePath("../../Floor/FloorBeam5")
 node_b = NodePath("../../Anchors/Anchor6")
 
-[node name="PinJoint2D11" type="PinJoint2D" parent="Joints"]
+[node name="PinJoint2D11" type="PinJoint2D" parent="Joints" groups=["pin_joints"]]
 position = Vector2(797, 472)
 node_a = NodePath("../../Anchors/Anchor6")
 node_b = NodePath("../../Floor/FloorBeam6")
 
-[node name="PinJoint2D12" type="PinJoint2D" parent="Joints"]
+[node name="PinJoint2D12" type="PinJoint2D" parent="Joints" groups=["pin_joints"]]
 position = Vector2(904, 472)
 node_a = NodePath("../../Floor/FloorBeam6")
 node_b = NodePath("../../Anchors/Anchor7")
 
-[node name="AnchorToTerrain2" type="PinJoint2D" parent="Joints"]
+[node name="AnchorToTerrain2" type="PinJoint2D" parent="Joints" groups=["pin_joints"]]
 position = Vector2(904, 472)
 node_a = NodePath("../../Anchors/Anchor7")
 node_b = NodePath("../../RightTerrain/StaticBody2D")
