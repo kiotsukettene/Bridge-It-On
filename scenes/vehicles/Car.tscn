@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dijjbb3ddaitj"]
+[gd_scene load_steps=7 format=3 uid="uid://dijjbb3ddaitj"]
 
 [ext_resource type="Script" uid="uid://b7wpohkbtya4g" path="res://scripts/vehicles/Car.gd" id="1_s1gud"]
 [ext_resource type="Texture2D" uid="uid://bq5jcgc23frh0" path="res://assets/sprites/Car/car.png" id="2_s1gud"]
@@ -6,8 +6,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbas2"]
 size = Vector2(128, 48)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tn0jf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_48c13"]
 radius = 5.0
@@ -17,6 +15,9 @@ radius = 5.0
 [node name="Car" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 18
+mass = 20.0
+linear_damp = 0.8
+angular_damp = 1.5
 script = ExtResource("1_s1gud")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -30,8 +31,9 @@ shape = SubResource("RectangleShape2D_cbas2")
 [node name="LeftWheel" type="RigidBody2D" parent="."]
 collision_layer = 8
 collision_mask = 18
-mass = 3.0
-physics_material_override = SubResource("PhysicsMaterial_tn0jf")
+mass = 5.0
+linear_damp = 0.2
+angular_damp = 0.4
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftWheel"]
 position = Vector2(-40, 35)
@@ -48,8 +50,10 @@ shape = SubResource("CircleShape2D_48c13")
 [node name="RightWheel" type="RigidBody2D" parent="."]
 collision_layer = 8
 collision_mask = 18
-mass = 3.0
+mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_0twci")
+linear_damp = 0.2
+angular_damp = 0.4
 
 [node name="Sprite2D2" type="Sprite2D" parent="RightWheel"]
 position = Vector2(25, 35)
@@ -67,8 +71,10 @@ shape = SubResource("CircleShape2D_48c13")
 position = Vector2(-40, 35)
 node_a = NodePath("..")
 node_b = NodePath("../LeftWheel")
+bias = 0.9
 
 [node name="PinJoint2D_Right" type="PinJoint2D" parent="."]
 position = Vector2(25, 35)
 node_a = NodePath("..")
 node_b = NodePath("../RightWheel")
+bias = 0.9

@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://blomw8ppriu3e"]
+[gd_scene load_steps=6 format=3 uid="uid://blomw8ppriu3e"]
 
 [ext_resource type="Texture2D" uid="uid://jgci6q8dwmxg" path="res://assets/sprites/Car/truckWheels.png" id="1_i01el"]
 [ext_resource type="Script" uid="uid://c42bjd84rb2vj" path="res://scripts/vehicles/Truck.gd" id="1_vnsw7"]
 [ext_resource type="Texture2D" uid="uid://dynpxik0iy4dh" path="res://assets/sprites/Car/Truck.png" id="2_vnsw7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnsw7"]
+size = Vector2(296, 128)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i01el"]
 radius = 16.7498
@@ -10,20 +13,25 @@ radius = 16.7498
 [node name="Truck" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 18
-mass = 15.0
+mass = 300.0
+linear_damp = 1.0
+angular_damp = 2.0
 script = ExtResource("1_vnsw7")
 
 [node name="Truck" type="Sprite2D" parent="."]
 scale = Vector2(0.04, 0.039)
 texture = ExtResource("2_vnsw7")
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-build_mode = 1
-polygon = PackedVector2Array(-152, -64, 72, -64, 72, -48, 112, -48, 152, 8, 152, 72, 88, 72, 80, 64, 72, 64, -96, 64, -120, 56, -136, 56, -144, 24, -152, 24)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_vnsw7")
 
 [node name="LeftWheel" type="RigidBody2D" parent="."]
 collision_layer = 8
 collision_mask = 18
+mass = 40.0
+linear_damp = 0.2
+angular_damp = 0.4
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftWheel"]
 position = Vector2(-68, 62)
@@ -40,6 +48,9 @@ shape = SubResource("CircleShape2D_i01el")
 [node name="RightWheel" type="RigidBody2D" parent="."]
 collision_layer = 8
 collision_mask = 18
+mass = 40.0
+linear_damp = 0.5
+angular_damp = 1.0
 
 [node name="Sprite2D2" type="Sprite2D" parent="RightWheel"]
 position = Vector2(52, 62)
@@ -57,8 +68,10 @@ shape = SubResource("CircleShape2D_i01el")
 position = Vector2(52, 62)
 node_a = NodePath("..")
 node_b = NodePath("../RightWheel")
+bias = 0.9
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(-68, 62)
 node_a = NodePath("..")
 node_b = NodePath("../LeftWheel")
+bias = 0.9

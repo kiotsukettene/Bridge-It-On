@@ -10,6 +10,10 @@ radius = 13.0384
 z_index = 5
 collision_mask = 4
 input_pickable = true
+mass = 5.0
+gravity_scale = 0.3
+linear_damp = 1.2
+angular_damp = 1.2
 script = ExtResource("1_sho14")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -13,6 +13,9 @@ radius = 11.3728
 [node name="Bus" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 18
+mass = 80.0
+linear_damp = 1.0
+angular_damp = 2.0
 script = ExtResource("1_61kbu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -26,6 +29,9 @@ shape = SubResource("RectangleShape2D_61kbu")
 [node name="LeftWheel" type="RigidBody2D" parent="."]
 collision_layer = 8
 collision_mask = 18
+mass = 20.0
+linear_damp = 0.5
+angular_damp = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftWheel"]
 position = Vector2(-42, 30)
@@ -42,6 +48,9 @@ shape = SubResource("CircleShape2D_fi7g5")
 [node name="RightWheel" type="RigidBody2D" parent="."]
 collision_layer = 8
 collision_mask = 18
+mass = 20.0
+linear_damp = 0.2
+angular_damp = 0.4
 
 [node name="Sprite2D" type="Sprite2D" parent="RightWheel"]
 position = Vector2(66, 30)
@@ -59,8 +68,10 @@ shape = SubResource("CircleShape2D_fi7g5")
 position = Vector2(-41.5, 30)
 node_a = NodePath("..")
 node_b = NodePath("../LeftWheel")
+bias = 0.9
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="."]
 position = Vector2(66, 30)
 node_a = NodePath("..")
 node_b = NodePath("../RightWheel")
+bias = 0.9
