@@ -8,7 +8,7 @@ extends Node2D
 var current_level: Node = null
 
 func _ready():
-	load_level("res://levels/Level3.tscn")
+	load_level("res://levels/Level2.tscn")
 
 	# Connect button signals
 	controls.play_pressed.connect(_on_play_pressed)
