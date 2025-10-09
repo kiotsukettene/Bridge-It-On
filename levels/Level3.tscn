@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dphihqeephl73"]
+[gd_scene load_steps=9 format=3 uid="uid://dphihqeephl73"]
 
 [ext_resource type="Script" uid="uid://rxvbbb5md62s" path="res://scripts/levels/Level3.gd" id="1_mmhpo"]
 [ext_resource type="Texture2D" uid="uid://bpagbf1740ib4" path="res://assets/sprites/environment/Terrain.png" id="1_r8psn"]
 [ext_resource type="PackedScene" uid="uid://pk6ubp6u20pd" path="res://scenes/bridge/Anchor.tscn" id="2_3ns6d"]
+[ext_resource type="Script" uid="uid://42rvyhleedd4" path="res://scripts/ui/FinishFlag.gd" id="3_liotd"]
 [ext_resource type="PackedScene" uid="uid://dmovlverqiyoq" path="res://scenes/bridge/FloorBeam.tscn" id="3_mmhpo"]
+[ext_resource type="Texture2D" uid="uid://hpoui6rjev8a" path="res://assets/sprites/environment/Marker2.png" id="3_rd3y7"]
 [ext_resource type="PackedScene" uid="uid://blomw8ppriu3e" path="res://scenes/vehicles/Truck.tscn" id="4_3ns6d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rd3y7"]
+size = Vector2(48, 93)
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_mmhpo")
@@ -21,7 +26,7 @@ collision_layer = 16
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftTerrain/StaticBody2D"]
-position = Vector2(-98, 0)
+position = Vector2(-95, 1.5)
 build_mode = 1
 polygon = PackedVector2Array(-32, 464, 360, 464, 360, 480, 352, 488, 344, 488, 344, 648, -16, 648, -16, 496, -32, 488)
 
@@ -38,9 +43,26 @@ collision_layer = 16
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightTerrain/StaticBody2D"]
-position = Vector2(112, 0)
+position = Vector2(110, 1.5)
 build_mode = 1
-polygon = PackedVector2Array(792, 464, 792, 488, 808, 488, 808, 648, 1168, 648, 1168, 496, 1184, 488, 1184, 464)
+polygon = PackedVector2Array(792, 464, 792, 488, 808, 488, 808, 648, 1168, 648, 1168, 496, 1104, 328, 1104, 464)
+
+[node name="Area2D" type="Area2D" parent="RightTerrain"]
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("3_liotd")
+
+[node name="Sprite2D" type="Sprite2D" parent="RightTerrain/Area2D"]
+z_index = 2
+position = Vector2(1128, 408)
+scale = Vector2(0.0478196, 0.0478196)
+texture = ExtResource("3_rd3y7")
+region_enabled = true
+region_rect = Rect2(719.723, 0, 1009.39, 2197.18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightTerrain/Area2D"]
+position = Vector2(1128, 414.5)
+shape = SubResource("RectangleShape2D_rd3y7")
 
 [node name="Floor" type="Node2D" parent="."]
 
@@ -158,4 +180,4 @@ node_a = NodePath("../../Anchors/Anchor7")
 node_b = NodePath("../../RightTerrain/StaticBody2D")
 
 [node name="Truck" parent="." instance=ExtResource("4_3ns6d")]
-position = Vector2(120, 379)
+position = Vector2(120, 381)

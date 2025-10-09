@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://dh2i3fjwfg82l"]
+[gd_scene load_steps=9 format=3 uid="uid://dh2i3fjwfg82l"]
 
 [ext_resource type="Texture2D" uid="uid://bpagbf1740ib4" path="res://assets/sprites/environment/Terrain.png" id="1_b84ys"]
 [ext_resource type="Script" uid="uid://h0nip2gvveod" path="res://scripts/levels/Level1.gd" id="1_gqfrg"]
 [ext_resource type="PackedScene" uid="uid://pk6ubp6u20pd" path="res://scenes/bridge/Anchor.tscn" id="2_32mhh"]
-[ext_resource type="Texture2D" uid="uid://ddqywyw1r7a6n" path="res://assets/sprites/environment/Narker.png" id="2_vi6ws"]
 [ext_resource type="Texture2D" uid="uid://hpoui6rjev8a" path="res://assets/sprites/environment/Marker2.png" id="3_cr8f5"]
+[ext_resource type="Script" uid="uid://42rvyhleedd4" path="res://scripts/ui/FinishFlag.gd" id="3_gqfrg"]
 [ext_resource type="PackedScene" uid="uid://dmovlverqiyoq" path="res://scenes/bridge/FloorBeam.tscn" id="3_ohbkr"]
 [ext_resource type="PackedScene" uid="uid://dijjbb3ddaitj" path="res://scenes/vehicles/Car.tscn" id="6_cr8f5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr8f5"]
+size = Vector2(10.5, 81)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_gqfrg")
@@ -23,14 +26,9 @@ collision_layer = 16
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftTerrain/StaticBody2D"]
-position = Vector2(-8, 0)
+position = Vector2(-8, 2)
 build_mode = 1
 polygon = PackedVector2Array(-16, 464, 480, 464, 480, 480, 472, 488, 464, 488, 464, 488, 464, 488, 464, 488, 464, 648, 0, 648, 0, 496, -24, 488, -24, 464)
-
-[node name="StartLineMarker" type="Sprite2D" parent="LeftTerrain"]
-position = Vector2(112, 432)
-scale = Vector2(0.102761, 0.0858734)
-texture = ExtResource("2_vi6ws")
 
 [node name="RightTerrain" type="Node2D" parent="."]
 
@@ -45,13 +43,26 @@ collision_layer = 16
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightTerrain/StaticBody2D"]
+position = Vector2(0, 2)
 build_mode = 1
-polygon = PackedVector2Array(680, 464, 1176, 464, 1176, 488, 1152, 496, 1152, 648, 696, 648, 696, 488, 680, 488)
+polygon = PackedVector2Array(680, 464, 1152, 464, 1152, 368, 1176, 480, 1152, 648, 696, 648, 696, 488, 680, 488)
 
-[node name="FinishLineMarker" type="Sprite2D" parent="RightTerrain"]
-position = Vector2(1032, 432)
+[node name="Area2D" type="Area2D" parent="RightTerrain"]
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("3_gqfrg")
+
+[node name="Sprite2D" type="Sprite2D" parent="RightTerrain/Area2D"]
+z_index = 2
+position = Vector2(1032, 424)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("3_cr8f5")
+region_enabled = true
+region_rect = Rect2(729.049, 0, 1025.68, 2229.57)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightTerrain/Area2D"]
+position = Vector2(1018.75, 424)
+shape = SubResource("RectangleShape2D_cr8f5")
 
 [node name="Floor" type="Node2D" parent="."]
 
