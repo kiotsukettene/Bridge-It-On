@@ -8,7 +8,10 @@ extends Node2D
 var current_level: Node = null
 
 func _ready():
-	load_level("res://levels/Level2.tscn")
+	var level_path = Global.selected_level_path
+	if level_path == "":
+		level_path = "res://levels/Level1.tscn"
+	load_level(level_path)
 
 	# Connect button signals
 	controls.play_pressed.connect(_on_play_pressed)
@@ -66,7 +69,7 @@ func _erase_user_supports():
 		anchor.queue_free()
 		
 func _on_reset_pressed():
-	load_level("res://levels/Level3.tscn")
+	load_level(Global.selected_level_path)
 	await get_tree().process_frame
 	for v in get_tree().get_nodes_in_group("vehicles"):
 		v.driving = false

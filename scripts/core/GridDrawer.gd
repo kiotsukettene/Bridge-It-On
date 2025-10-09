@@ -6,7 +6,7 @@ extends Node2D
 @export var line_width: float = 1.0
 
 func _ready():
-	z_index = -100  # make sure it's behind everything
+	z_index = -1  # make sure it's behind everything
 	queue_redraw()
 
 func _draw():

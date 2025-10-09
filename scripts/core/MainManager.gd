@@ -38,7 +38,7 @@ func _ready():
 #Main Menu Buttons
 func _on_playbutton_pressed():
 	ButtonSound.play_sound()
-	get_tree().change_scene_to_file("res://levels/Level1.tscn")
+	get_tree().change_scene_to_file("res://scenes/main/Game.tscn")
 
 func _on_levelbutton_pressed():
 	ButtonSound.play_sound()
