@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Music="*res://scripts/Sounds/Music.gd"
 ButtonSound="*res://sounds/ButtonSound.tscn"
+Global="*res://scripts/core/Global.gd"
 
 [dotnet]
 

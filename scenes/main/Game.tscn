@@ -1,13 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://boojg1wh1amv5"]
+[gd_scene load_steps=7 format=3 uid="uid://boojg1wh1amv5"]
 
 [ext_resource type="Script" uid="uid://sjksm1mg3877" path="res://scripts/core/Game.gd" id="1_15kd6"]
 [ext_resource type="PackedScene" uid="uid://5rj4ygx3ai6p" path="res://scenes/bridge/BridgeBuilder.tscn" id="1_rbdcy"]
-[ext_resource type="Script" path="res://scripts/core/GridDrawer.gd" id="1_rj7qi"]
+[ext_resource type="Script" uid="uid://dq34dgdagyhr4" path="res://scripts/core/GridDrawer.gd" id="1_rj7qi"]
+[ext_resource type="Texture2D" uid="uid://dapkc2rjf1l44" path="res://assets/sprites/environment/bg-v2.png" id="2_wdbbf"]
 [ext_resource type="PackedScene" uid="uid://c7p7jf70m84jo" path="res://scenes/ui/Controls.tscn" id="4_j4klc"]
 [ext_resource type="PackedScene" uid="uid://ew68jeosik0e" path="res://scenes/ui/BuildToolBar.tscn" id="5_15kd6"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_15kd6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(581.201, 360.125)
+scale = Vector2(0.584687, 0.584687)
+texture = ExtResource("2_wdbbf")
 
 [node name="Grid" type="Node2D" parent="."]
 z_index = 3
