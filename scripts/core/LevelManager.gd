@@ -1,5 +1,6 @@
 extends Node2D
 
+
 func _ready():
 	$ButtonCar.pressed.connect(_on_car_pressed)
 	$ButtonBus.pressed.connect(_on_bus_pressed)
@@ -19,4 +20,5 @@ func _on_truck_pressed():
 	get_tree().change_scene_to_file("res://scenes/main/Game.tscn")
 
 func _on_back_pressed():
+	ButtonSound.play_sound()
 	get_tree().change_scene_to_file("res://scenes/main/MainMenu.tscn")

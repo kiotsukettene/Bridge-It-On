@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgh1e720lk87k"]
+[gd_scene load_steps=11 format=3 uid="uid://bgh1e720lk87k"]
 
 [ext_resource type="Script" uid="uid://dvgr7j38qinkx" path="res://scripts/core/LevelManager.gd" id="1_sdic3"]
 [ext_resource type="Texture2D" uid="uid://ch26kypf0mtub" path="res://assets/sprites/environment/CarLevelSelect.png" id="1_v565k"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://0h5si7gomstd" path="res://assets/sprites/environment/busLevelSelect.png" id="2_sdic3"]
 [ext_resource type="Texture2D" uid="uid://d21txq716ngys" path="res://assets/sprites/environment/truckLevelSelect.png" id="3_horsu"]
 [ext_resource type="Texture2D" uid="uid://odut3vc8exdo" path="res://assets/sprites/environment/back.png" id="5_horsu"]
+[ext_resource type="Texture2D" uid="uid://bayh51hni8qh7" path="res://assets/sprites/environment/select_level_text.png" id="7_xebqt"]
+[ext_resource type="Texture2D" uid="uid://dcctqlfhj58od" path="res://assets/sprites/environment/select_car_descript.png" id="8_h1tr1"]
+[ext_resource type="Texture2D" uid="uid://7s01gdh3kcep" path="res://assets/sprites/environment/select_bus_descript.png" id="9_lq5og"]
+[ext_resource type="Texture2D" uid="uid://cl4fp17ausluq" path="res://assets/sprites/environment/select_truck_descript.png" id="10_p78cu"]
 
 [node name="LevelSelect" type="Node2D"]
 position = Vector2(2, -24)
@@ -18,6 +22,7 @@ scale = Vector2(0.574106, 0.573518)
 texture = ExtResource("2_cq6lx")
 
 [node name="ButtonCar" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 104.0
 offset_top = 174.0
 offset_right = 383.0
@@ -30,22 +35,24 @@ scale = Vector2(0.175095, 0.175095)
 texture = ExtResource("1_v565k")
 
 [node name="ButtonBus" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 432.0
 offset_top = 178.0
-offset_right = 712.0
-offset_bottom = 572.0
+offset_right = 709.0
+offset_bottom = 570.0
 flat = true
 
 [node name="BusLevelSelect" type="Sprite2D" parent="ButtonBus"]
-position = Vector2(136, 195)
+position = Vector2(138, 195)
 scale = Vector2(0.175095, 0.175094)
 texture = ExtResource("2_sdic3")
 
 [node name="ButtonTruck" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 760.0
 offset_top = 174.0
-offset_right = 1041.0
-offset_bottom = 566.0
+offset_right = 1040.0
+offset_bottom = 568.0
 flat = true
 
 [node name="TruckLevelSelect" type="Sprite2D" parent="ButtonTruck"]
@@ -54,6 +61,7 @@ scale = Vector2(0.175016, 0.175016)
 texture = ExtResource("3_horsu")
 
 [node name="BackButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 15.0
 offset_top = 40.0
 offset_right = 84.0
@@ -61,6 +69,26 @@ offset_bottom = 103.0
 flat = true
 
 [node name="Back" type="Sprite2D" parent="BackButton"]
-position = Vector2(35, 50)
+position = Vector2(35, 32)
 scale = Vector2(0.0461025, 0.0461025)
 texture = ExtResource("5_horsu")
+
+[node name="SelectLevelText" type="Sprite2D" parent="."]
+position = Vector2(576, 108)
+scale = Vector2(0.30935, 0.30935)
+texture = ExtResource("7_xebqt")
+
+[node name="SelectCarDescript" type="Sprite2D" parent="."]
+position = Vector2(241, 557)
+scale = Vector2(0.0811667, 0.0811667)
+texture = ExtResource("8_h1tr1")
+
+[node name="SelectBusDescript" type="Sprite2D" parent="."]
+position = Vector2(569.333, 557.5)
+scale = Vector2(0.0806667, 0.0806667)
+texture = ExtResource("9_lq5og")
+
+[node name="SelectTruckDescript" type="Sprite2D" parent="."]
+position = Vector2(899, 557.5)
+scale = Vector2(0.0806667, 0.0806667)
+texture = ExtResource("10_p78cu")

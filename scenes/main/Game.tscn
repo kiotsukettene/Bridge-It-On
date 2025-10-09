@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://5rj4ygx3ai6p" path="res://scenes/bridge/BridgeBuilder.tscn" id="1_rbdcy"]
 [ext_resource type="Script" uid="uid://dq34dgdagyhr4" path="res://scripts/core/GridDrawer.gd" id="1_rj7qi"]
 [ext_resource type="Texture2D" uid="uid://dapkc2rjf1l44" path="res://assets/sprites/environment/bg-v2.png" id="2_wdbbf"]
+[ext_resource type="Script" path="res://scripts/core/GridDrawer.gd" id="1_rj7qi"]
 [ext_resource type="PackedScene" uid="uid://c7p7jf70m84jo" path="res://scenes/ui/Controls.tscn" id="4_j4klc"]
 [ext_resource type="PackedScene" uid="uid://ew68jeosik0e" path="res://scenes/ui/BuildToolBar.tscn" id="5_15kd6"]
 
