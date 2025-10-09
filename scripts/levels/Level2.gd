@@ -16,6 +16,21 @@ func _ready() -> void:
 	_cache_rest_positions()
 	print("[Bridge] Tracking %d FloorBeams for deflection..." % rest_positions.size())
 
+func _connect_finish_flag() -> void:
+	var flag := get_node_or_null("RightTerrain/FinishFlag")
+	if flag and flag.has_signal("level_complete"):
+		flag.connect("level_complete", Callable(self, "_on_level_complete"))
+		print("[Level] Connected FinishFlag")
+	else:
+		push_warning("FinishFlag not found in RightTerrain")
+
+func _on_level_complete(vehicle_name: String) -> void:
+	print("LEVEL COMPLETE! Vehicle:", vehicle_name)
+	_show_completion_effect()
+	get_tree().paused = true 
+
+func _show_completion_effect() -> void:
+	print("Bridge stable — success!")
 
 func _physics_process(delta: float) -> void:
 	time_accum += delta
