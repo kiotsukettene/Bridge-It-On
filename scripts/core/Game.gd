@@ -10,7 +10,7 @@ var current_level: Node = null
 func _ready():
 	var level_path = Global.selected_level_path
 	if level_path == "":
-		level_path = "res://levels/Level1.tscn"
+		level_path = "res://levels/Level3.tscn"
 	load_level(level_path)
 
 	# Connect button signals
@@ -45,6 +45,18 @@ func _on_play_pressed():
 	for anchor in get_tree().get_nodes_in_group("anchors"):
 		if anchor.has_method("set_build_mode"):
 			anchor.set_build_mode(false)
+			
+	if current_level and current_level.has_method("compute_bridge_stiffness"):
+		var data = current_level.compute_bridge_stiffness()
+		var stiffness_value = data["total_stiffness"]
+
+	# Apply damping multiplier
+		for beam in get_tree().get_nodes_in_group("user_supports"):
+			if beam is RigidBody2D:
+				var damp_mult = clamp(stiffness_value * 0.5, 0.5, 3.0)
+				beam.linear_damp = 2.0 * damp_mult
+				beam.angular_damp = 2.0 * damp_mult
+
 
 func _on_pause_pressed():
 	for v in get_tree().get_nodes_in_group("vehicles"):
@@ -71,6 +83,7 @@ func _erase_user_supports():
 func _on_reset_pressed():
 	load_level(Global.selected_level_path)
 	await get_tree().process_frame
+	_on_erase_pressed()
 	for v in get_tree().get_nodes_in_group("vehicles"):
 		v.driving = false
 	for beam in get_tree().get_nodes_in_group("user_supports"):

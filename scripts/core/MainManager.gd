@@ -13,6 +13,7 @@ var sounds_muted := false
 
 func _ready():
 	Music.play_music()
+	get_tree().paused = false 
 	
 	# Connect main menu buttons
 	$PlayButton.pressed.connect(_on_playbutton_pressed)
@@ -38,7 +39,9 @@ func _ready():
 #Main Menu Buttons
 func _on_playbutton_pressed():
 	ButtonSound.play_sound()
+	Global.selected_level_path = "res://levels/Level1.tscn"
 	get_tree().change_scene_to_file("res://scenes/main/Game.tscn")
+
 
 func _on_levelbutton_pressed():
 	ButtonSound.play_sound()
