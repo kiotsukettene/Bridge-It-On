@@ -6,4 +6,6 @@
 shader = ExtResource("1_0qbwl")
 shader_parameter/deflection = 0.0
 shader_parameter/max_bend = 70.0
-shader_parameter/time_speed = 2.0
+shader_parameter/active_threshold = 1.5
+shader_parameter/base_color = Color(0.25, 0.15, 0.05, 1)
+shader_parameter/glow_strength = 1.4

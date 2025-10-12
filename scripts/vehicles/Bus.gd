@@ -3,5 +3,5 @@ extends Vehicle
 func _ready():
 	super._ready()
 	wheel_torque = 16000.0
-	torque_scale = 4.0
+	torque_scale = 5.0
 	wheel_friction = 1.1
