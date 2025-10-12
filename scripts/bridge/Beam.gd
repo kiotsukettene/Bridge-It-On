@@ -28,6 +28,13 @@ func _ready():
 	set_build_mode(true)
 	apply_build_material()
 
+	mass = 1.5
+	linear_damp = 3.5
+	angular_damp = 3.5
+	gravity_scale = 1.0
+
+
+
 
 func setup(a: RigidBody2D, b: RigidBody2D, mat_type: String = "wood"):
 	anchor_a = a

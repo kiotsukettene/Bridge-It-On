@@ -3,7 +3,7 @@ extends Node2D
 
 func _ready():
 	Music.play_music()
-
+	get_tree().paused = false 
 	# Connect button signals
 	$ButtonCar.pressed.connect(_on_car_pressed)
 	$ButtonBus.pressed.connect(_on_bus_pressed)

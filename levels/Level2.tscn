@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cm3ctse74k087"]
+[gd_scene load_steps=10 format=3 uid="uid://cm3ctse74k087"]
 
 [ext_resource type="Texture2D" uid="uid://bpagbf1740ib4" path="res://assets/sprites/environment/Terrain.png" id="1_432n0"]
 [ext_resource type="Script" uid="uid://1yqtb05urs1s" path="res://scripts/levels/Level2.gd" id="1_wnytt"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://4nnfcg7u7jr4" path="res://scripts/ui/FinishFlag.gd" id="3_pixff"]
 [ext_resource type="PackedScene" uid="uid://dmovlverqiyoq" path="res://scenes/bridge/FloorBeam.tscn" id="3_wnytt"]
 [ext_resource type="PackedScene" uid="uid://c5c11gku1su0n" path="res://scenes/vehicles/Bus.tscn" id="4_1hrej"]
+[ext_resource type="Texture2D" uid="uid://2o7mljpfpfu7" path="res://assets/sprites/environment/red-flag.png" id="4_pixff"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pixff"]
 size = Vector2(20.5, 104.25)
@@ -31,6 +32,11 @@ scale = Vector2(0.930424, 1)
 build_mode = 1
 polygon = PackedVector2Array(-22.4887, 462.5, 398.825, 464, 398.825, 472, 392, 488, 376, 488, 376, 648, -8, 648, -8, 496, -32, 488)
 
+[node name="Sprite2D2" type="Sprite2D" parent="LeftTerrain"]
+position = Vector2(277, 414)
+scale = Vector2(0.0558334, 0.0516667)
+texture = ExtResource("3_jiouf")
+
 [node name="RightTerrain" type="Node2D" parent="."]
 
 [node name="Sprite2D2" type="Sprite2D" parent="RightTerrain"]
@@ -49,20 +55,20 @@ scale = Vector2(0.942217, 1)
 build_mode = 1
 polygon = PackedVector2Array(760, 464, 768, 488, 776, 488, 776, 488, 776, 648, 1160, 648, 1160, 496, 1142.24, 334, 1142.24, 462)
 
-[node name="Area2D" type="Area2D" parent="RightTerrain"]
+[node name="FinishFlag" type="Area2D" parent="RightTerrain"]
 collision_layer = 32
 collision_mask = 8
 script = ExtResource("3_pixff")
 
-[node name="Sprite2D" type="Sprite2D" parent="RightTerrain/Area2D"]
-position = Vector2(1056, 408)
-scale = Vector2(0.0521761, 0.0521761)
-texture = ExtResource("3_jiouf")
+[node name="Sprite2D" type="Sprite2D" parent="RightTerrain/FinishFlag"]
+position = Vector2(1072, 408)
+scale = Vector2(0.0687694, 0.10586)
+texture = ExtResource("4_pixff")
 region_enabled = true
-region_rect = Rect2(739.017, 0, 1011.84, 2200.27)
+region_rect = Rect2(237.816, -4.84216, 672.75, 1058.05)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightTerrain/Area2D"]
-position = Vector2(1048, 412.125)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightTerrain/FinishFlag"]
+position = Vector2(1064, 416)
 shape = SubResource("RectangleShape2D_pixff")
 
 [node name="Floor" type="Node2D" parent="."]

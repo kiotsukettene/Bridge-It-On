@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://8k6dgkt2o27o"]
+
+[ext_resource type="Shader" uid="uid://br36idqvpwbjn" path="res://shader/neon_heatmap.gdshader" id="1_0qbwl"]
+
+[resource]
+shader = ExtResource("1_0qbwl")
+shader_parameter/deflection = 0.0
+shader_parameter/max_bend = 70.0
+shader_parameter/time_speed = 2.0

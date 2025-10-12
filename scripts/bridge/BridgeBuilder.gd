@@ -22,7 +22,7 @@ func _ready():
 
 func set_build_material(material_type: String):
 	current_material = material_type
-	print("🪵 BridgeBuilder: material set to", material_type)
+	print("🪵 BridgeBuilder: material set to ", material_type)
 
 
 func _snap(pos: Vector2) -> Vector2:
@@ -70,10 +70,34 @@ func _finish_drawing(mouse_pos: Vector2):
 		end_anchor.collision_layer = 1
 		end_anchor.collision_mask = 0
 
+		# 🧱 Anchor stabilization
+		end_anchor.mass = 2.5
+		end_anchor.gravity_scale = 0.5
+		end_anchor.linear_damp = 3.0
+		end_anchor.angular_damp = 3.0
+
+	# 🪵 Beam stabilization
 	var beam = beam_scene.instantiate()
 	get_parent().add_child(beam)
 	beam.setup(start_anchor, end_anchor, current_material)
 	beam.add_to_group("user_supports")
+
+	# Apply physical damping based on material
+	match current_material:
+		"wood":
+			beam.mass = 1.0
+			beam.linear_damp = 2.5
+			beam.angular_damp = 2.5
+		"metal":
+			beam.mass = 1.8
+			beam.linear_damp = 3.5
+			beam.angular_damp = 3.5
+		_:
+			beam.mass = 1.2
+			beam.linear_damp = 2.0
+			beam.angular_damp = 2.0
+
+	beam.gravity_scale = 1.0
 
 	_make_joint(beam, start_anchor, start_anchor.global_position)
 	_make_joint(beam, end_anchor, end_anchor.global_position)
@@ -98,6 +122,33 @@ func _make_joint(beam: RigidBody2D, anchor: RigidBody2D, pos: Vector2):
 	joint.node_b = anchor.get_path()
 	joint.position = pos
 	get_parent().add_child(joint)
+
+	# Count how many other beams already connect to this anchor
+	var connections = 0
+	for child in get_parent().get_children():
+		if child is PinJoint2D and (child.node_a == anchor.get_path() or child.node_b == anchor.get_path()):
+			connections += 1
+
+	# More connected beams = tighter joint
+	var stiffness_scale = clamp(1.0 + connections * 0.25, 1.0, 2.0)
+
+	var spring := DampedSpringJoint2D.new()
+	spring.node_a = beam.get_path()
+	spring.node_b = anchor.get_path()
+	spring.position = pos
+	spring.length = 0.0
+	spring.rest_length = 0.0
+
+	match current_material:
+		"wood":
+			spring.stiffness = 1500.0 * stiffness_scale
+			spring.damping = 35.0
+		"metal":
+			spring.stiffness = 6000.0 * stiffness_scale
+			spring.damping = 80.0
+	get_parent().add_child(spring)
+
+
 
 
 func refresh_anchors():

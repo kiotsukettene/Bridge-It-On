@@ -33,6 +33,10 @@ click={
 ]
 }
 
+[physics]
+
+2d/solver/default_contact_bias=0.6
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -1,0 +1,124 @@
+[gd_scene load_steps=6 format=3 uid="uid://df2oy71rfaxp3"]
+
+[ext_resource type="Script" uid="uid://bimyemjecqsof" path="res://scripts/physics/FEAAnalyser.gd" id="1_i4w7p"]
+[ext_resource type="Texture2D" uid="uid://mjesgfvsieyb" path="res://assets/sprites/environment/level-passed.png" id="2_i4w7p"]
+[ext_resource type="Texture2D" uid="uid://c7xxhgc1k6jqk" path="res://assets/sprites/ui/reset-button.png" id="3_i4w7p"]
+[ext_resource type="Texture2D" uid="uid://c4cxevwt2makk" path="res://assets/sprites/ui/levels.png" id="4_i4w7p"]
+[ext_resource type="Texture2D" uid="uid://b5i2g87318frn" path="res://assets/sprites/ui/home-logo.png" id="5_sc03o"]
+
+[node name="FEAAnalyser" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_i4w7p")
+
+[node name="Panel" type="Control" parent="."]
+z_index = 6
+layout_mode = 3
+anchors_preset = 0
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 896.0
+offset_bottom = 512.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(320, 184)
+scale = Vector2(0.291219, 0.283885)
+texture = ExtResource("2_i4w7p")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 1501.58)
+
+[node name="ResetButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 320.0
+offset_right = 272.0
+offset_bottom = 376.0
+texture_normal = ExtResource("3_i4w7p")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LevelsButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 320.0
+offset_right = 361.0
+offset_bottom = 376.0
+texture_normal = ExtResource("4_i4w7p")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="HomeButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 312.0
+offset_right = 440.0
+offset_bottom = 368.0
+texture_normal = ExtResource("5_sc03o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ResultLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 144.0
+offset_right = 192.0
+offset_bottom = 184.0
+theme_override_colors/font_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+text = "70.6 "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MaterialType" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 248.0
+offset_right = 200.0
+offset_bottom = 288.0
+theme_override_colors/font_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+text = "70.6 "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Stiffness" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 248.0
+offset_right = 376.0
+offset_bottom = 288.0
+theme_override_colors/font_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+text = "70.6 "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Beams" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 248.0
+offset_right = 560.0
+offset_bottom = 288.0
+theme_override_colors/font_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+text = "70.6 "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Nodes" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 144.0
+offset_right = 568.0
+offset_bottom = 184.0
+theme_override_colors/font_color = Color(0.00820202, 0.00820202, 0.00820202, 1)
+text = "4 nodes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bend" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 144.0
+offset_right = 376.0
+offset_bottom = 184.0
+theme_override_colors/font_color = Color(0.0110876, 0.0110876, 0.0110876, 1)
+text = "94.6"
+horizontal_alignment = 1
+vertical_alignment = 1

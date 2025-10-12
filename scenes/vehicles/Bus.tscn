@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dkhlvspr1y7s2" path="res://assets/sprites/Car/BusWheels.png" id="2_61kbu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61kbu"]
-size = Vector2(192, 80)
+size = Vector2(192, 72)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fi7g5"]
 radius = 11.3728
@@ -23,7 +23,7 @@ scale = Vector2(0.04, 0.039)
 texture = ExtResource("1_egqvi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, -8)
+position = Vector2(8, -12)
 shape = SubResource("RectangleShape2D_61kbu")
 
 [node name="LeftWheel" type="RigidBody2D" parent="."]
