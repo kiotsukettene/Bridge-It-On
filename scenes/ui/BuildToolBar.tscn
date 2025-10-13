@@ -11,9 +11,9 @@ script = ExtResource("1_oqw5q")
 [node name="Container" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 32.0
+offset_left = 437.0
 offset_top = 24.0
-offset_right = 320.0
+offset_right = 725.0
 offset_bottom = 120.0
 
 [node name="Background" type="Sprite2D" parent="Container"]

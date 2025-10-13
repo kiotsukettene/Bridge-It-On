@@ -18,6 +18,7 @@ func _ready():
 	controls.pause_pressed.connect(_on_pause_pressed)
 	controls.erase_pressed.connect(_on_erase_pressed)
 	controls.reset_pressed.connect(_on_reset_pressed)
+	$BackButton.pressed.connect(_on_back_pressed)
 
 
 	build_toolbar.material_selected.connect(_on_material_selected)
@@ -96,3 +97,7 @@ func _on_reset_pressed():
 func _on_material_selected(material_type: String):
 	if bridge_builder:
 		bridge_builder.set_build_material(material_type)
+
+func _on_back_pressed():
+	ButtonSound.play_sound()
+	get_tree().change_scene_to_file("res://scenes/main/MainMenu.tscn")

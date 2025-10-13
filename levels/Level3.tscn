@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://rxvbbb5md62s" path="res://scripts/levels/Level3.gd" id="1_mmhpo"]
 [ext_resource type="Texture2D" uid="uid://bpagbf1740ib4" path="res://assets/sprites/environment/Terrain.png" id="1_r8psn"]
 [ext_resource type="PackedScene" uid="uid://pk6ubp6u20pd" path="res://scenes/bridge/Anchor.tscn" id="2_3ns6d"]
-[ext_resource type="Script" uid="uid://4nnfcg7u7jr4" path="res://scripts/ui/FinishFlag.gd" id="3_liotd"]
+[ext_resource type="Script" path="res://scripts/ui/FinishFlag.gd" id="3_liotd"]
 [ext_resource type="PackedScene" uid="uid://dmovlverqiyoq" path="res://scenes/bridge/FloorBeam.tscn" id="3_mmhpo"]
 [ext_resource type="PackedScene" uid="uid://blomw8ppriu3e" path="res://scenes/vehicles/Truck.tscn" id="4_3ns6d"]
 [ext_resource type="Texture2D" uid="uid://2o7mljpfpfu7" path="res://assets/sprites/environment/red-flag.png" id="4_liotd"]

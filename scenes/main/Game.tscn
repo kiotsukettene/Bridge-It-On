@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://boojg1wh1amv5"]
+[gd_scene load_steps=9 format=3 uid="uid://boojg1wh1amv5"]
 
 [ext_resource type="Script" uid="uid://sjksm1mg3877" path="res://scripts/core/Game.gd" id="1_15kd6"]
 [ext_resource type="PackedScene" uid="uid://5rj4ygx3ai6p" path="res://scenes/bridge/BridgeBuilder.tscn" id="1_rbdcy"]
@@ -7,14 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://c7p7jf70m84jo" path="res://scenes/ui/Controls.tscn" id="4_j4klc"]
 [ext_resource type="PackedScene" uid="uid://ew68jeosik0e" path="res://scenes/ui/BuildToolBar.tscn" id="5_15kd6"]
 [ext_resource type="PackedScene" uid="uid://df2oy71rfaxp3" path="res://scenes/ui/FEAAnalyser.tscn" id="7_s3ho0"]
+[ext_resource type="Texture2D" uid="uid://odut3vc8exdo" path="res://assets/sprites/environment/back.png" id="8_migvx"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_15kd6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(581.201, 360.125)
-scale = Vector2(0.584687, 0.584687)
+position = Vector2(573.89, 355.625)
+scale = Vector2(0.577376, 0.577376)
 texture = ExtResource("2_wdbbf")
 
 [node name="Grid" type="Node2D" parent="."]
@@ -30,3 +31,16 @@ script = ExtResource("1_rj7qi")
 [node name="BuildToolBar" parent="." instance=ExtResource("5_15kd6")]
 
 [node name="FEAAnalyser" parent="." instance=ExtResource("7_s3ho0")]
+
+[node name="BackButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 17.0
+offset_top = 18.0
+offset_right = 82.0
+offset_bottom = 82.0
+flat = true
+
+[node name="Back" type="Sprite2D" parent="BackButton"]
+position = Vector2(32, 34)
+scale = Vector2(0.0449541, 0.0436357)
+texture = ExtResource("8_migvx")
