@@ -1,0 +1,276 @@
+[gd_scene load_steps=19 format=3 uid="uid://bt4dlmwxygecl"]
+
+[ext_resource type="Script" uid="uid://s27qithe81vb" path="res://scripts/core/Tutorial.gd" id="1_gfoyj"]
+[ext_resource type="Texture2D" uid="uid://dapkc2rjf1l44" path="res://assets/sprites/environment/bg-v2.png" id="1_gmmyf"]
+[ext_resource type="Texture2D" uid="uid://bpagbf1740ib4" path="res://assets/sprites/environment/Terrain.png" id="2_4toud"]
+[ext_resource type="Texture2D" uid="uid://hpoui6rjev8a" path="res://assets/sprites/environment/Marker2.png" id="3_1lbuk"]
+[ext_resource type="Texture2D" uid="uid://c1te0a64ttvkh" path="res://assets/sprites/environment/pixil-frame-0 (15).png" id="4_edy4c"]
+[ext_resource type="Texture2D" uid="uid://2o7mljpfpfu7" path="res://assets/sprites/environment/red-flag.png" id="5_a0ra0"]
+[ext_resource type="PackedScene" uid="uid://dmovlverqiyoq" path="res://scenes/bridge/FloorBeam.tscn" id="6_oydbm"]
+[ext_resource type="PackedScene" uid="uid://pk6ubp6u20pd" path="res://scenes/bridge/Anchor.tscn" id="7_wum0w"]
+[ext_resource type="Texture2D" uid="uid://dvykwcs30q5sc" path="res://assets/sprites/ui/select-materials-container.png" id="8_gfoyj"]
+[ext_resource type="Texture2D" uid="uid://8vmplm0n5ltn" path="res://assets/sprites/environment/Wood_Materials.png" id="9_hqhwc"]
+[ext_resource type="Texture2D" uid="uid://c4l71cony44ap" path="res://assets/sprites/environment/Metal_Materials.png" id="10_wurmc"]
+[ext_resource type="Texture2D" uid="uid://bx5x1do3occwv" path="res://assets/sprites/ui/Play.png" id="11_i323x"]
+[ext_resource type="Texture2D" uid="uid://ksoxobgf3fwc" path="res://assets/sprites/ui/Pause.png" id="12_a6nub"]
+[ext_resource type="Texture2D" uid="uid://dd0mydc1cclid" path="res://assets/sprites/ui/Erase.png" id="13_ixlbu"]
+[ext_resource type="Texture2D" uid="uid://lbeqhy3d0jy8" path="res://assets/sprites/ui/reset.png" id="14_f1mav"]
+[ext_resource type="Texture2D" uid="uid://odut3vc8exdo" path="res://assets/sprites/environment/back.png" id="15_tw1rq"]
+[ext_resource type="Texture2D" uid="uid://bqbpb2khek5q7" path="res://assets/sprites/Car/how-to-play.png" id="16_oydbm"]
+[ext_resource type="Texture2D" uid="uid://b28kepbjni1mx" path="res://assets/sprites/Car/pixil-frame-0 (9).png" id="17_wum0w"]
+
+[node name="Tutorial" type="Node2D"]
+self_modulate = Color(1, 1, 1, 0.8)
+script = ExtResource("1_gfoyj")
+
+[node name="Bg-v2" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(602.305, 398.422)
+scale = Vector2(0.648939, 0.648939)
+texture = ExtResource("1_gmmyf")
+
+[node name="Terrain" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(206.098, 632.938)
+scale = Vector2(0.226585, 0.178321)
+texture = ExtResource("2_4toud")
+
+[node name="Terrain2" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(928.5, 634.438)
+scale = Vector2(0.222083, 0.177917)
+texture = ExtResource("2_4toud")
+
+[node name="Marker2" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(224, 490.938)
+scale = Vector2(0.0686784, 0.0686784)
+texture = ExtResource("3_1lbuk")
+
+[node name="Pixil-frame-0(15)" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(124, 542.938)
+scale = Vector2(0.0413875, 0.0413875)
+texture = ExtResource("4_edy4c")
+
+[node name="Red-flag" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(939, 502.937)
+scale = Vector2(0.107176, 0.107176)
+texture = ExtResource("5_a0ra0")
+
+[node name="FloorBeam" parent="." instance=ExtResource("6_oydbm")]
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(521, 565.938)
+mass = 0.001
+gravity_scale = 0.0
+script = null
+
+[node name="FloorBeam2" parent="." instance=ExtResource("6_oydbm")]
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(627, 565.938)
+mass = 0.001
+gravity_scale = 0.0
+script = null
+
+[node name="Anchor" parent="." instance=ExtResource("7_wum0w")]
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(470, 565.938)
+mass = 0.001
+gravity_scale = 0.0
+script = null
+
+[node name="Anchor2" parent="." instance=ExtResource("7_wum0w")]
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(574, 565.938)
+mass = 0.001
+gravity_scale = 0.0
+script = null
+
+[node name="Anchor3" parent="." instance=ExtResource("7_wum0w")]
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(678, 565.938)
+mass = 0.001
+gravity_scale = 0.0
+script = null
+
+[node name="Container" type="Control" parent="."]
+self_modulate = Color(1, 1, 1, 0.8)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 437.0
+offset_top = 24.0
+offset_right = 725.0
+offset_bottom = 120.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Sprite2D" parent="Container"]
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
+self_modulate = Color(1, 1, 1, 0.8)
+position = Vector2(137.742, 47.0625)
+scale = Vector2(0.134258, 0.0795085)
+texture = ExtResource("8_gfoyj")
+
+[node name="WoodButton" type="TextureButton" parent="Container"]
+self_modulate = Color(1, 1, 1, 0.8)
+layout_mode = 2
+offset_left = 72.0
+offset_top = 32.0
+offset_right = 120.0
+offset_bottom = 64.0
+texture_normal = ExtResource("9_hqhwc")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="MetalButton" type="TextureButton" parent="Container"]
+self_modulate = Color(1, 1, 1, 0.8)
+layout_mode = 2
+offset_left = 160.0
+offset_top = 32.0
+offset_right = 208.0
+offset_bottom = 64.0
+texture_normal = ExtResource("10_wurmc")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayButton" type="Button" parent="Container"]
+self_modulate = Color(1, 1, 1, 0.8)
+layout_mode = 0
+offset_left = 643.0
+offset_top = 6.0
+offset_right = 699.0
+offset_bottom = 62.0
+icon = ExtResource("11_i323x")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseButton" type="Button" parent="Container"]
+self_modulate = Color(1, 1, 1, 0.8)
+layout_mode = 0
+offset_left = 643.0
+offset_top = 78.0
+offset_right = 699.0
+offset_bottom = 134.0
+icon = ExtResource("12_a6nub")
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="EraseButton" type="Button" parent="Container"]
+self_modulate = Color(1, 1, 1, 0.8)
+layout_mode = 0
+offset_left = 643.0
+offset_top = 150.0
+offset_right = 699.0
+offset_bottom = 206.0
+icon = ExtResource("13_ixlbu")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ResetButton" type="Button" parent="Container"]
+self_modulate = Color(1, 1, 1, 0.8)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.03125
+anchor_bottom = 0.03125
+offset_left = 643.0
+offset_top = 222.0
+offset_right = 699.0
+offset_bottom = 278.0
+icon = ExtResource("14_f1mav")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="How-to-play" type="Sprite2D" parent="."]
+position = Vector2(569, 304)
+scale = Vector2(0.379696, 0.379696)
+texture = ExtResource("16_oydbm")
+
+[node name="Pixil-frame-0(9)2" type="Sprite2D" parent="."]
+self_modulate = Color(24.31, 96.685, 0.037, 1)
+position = Vector2(116, 470)
+scale = Vector2(0.0394, 0.0394)
+texture = ExtResource("17_wum0w")
+region_enabled = true
+region_rect = Rect2(2810.54, 6070.3, 3114.95, 900.708)
+
+[node name="Pixil-frame-0(9)" type="Sprite2D" parent="."]
+self_modulate = Color(24.31, 96.685, 0.037, 1)
+position = Vector2(204, 572)
+scale = Vector2(0.0394, 0.0394)
+texture = ExtResource("17_wum0w")
+region_enabled = true
+region_rect = Rect2(6407.35, 6135.27, 2289.3, 844.413)
+
+[node name="Pixil-frame-0(9)3" type="Sprite2D" parent="."]
+self_modulate = Color(24.31, 96.685, 0.037, 1)
+position = Vector2(927, 574)
+scale = Vector2(0.0394, 0.0394)
+texture = ExtResource("17_wum0w")
+region_enabled = true
+region_rect = Rect2(3086, 7148.56, 2758.41, 825.648)
+
+[node name="Pixil-frame-0(9)4" type="Sprite2D" parent="."]
+self_modulate = Color(24.31, 96.685, 0.037, 1)
+position = Vector2(1033, 53)
+scale = Vector2(0.0394, 0.0394)
+texture = ExtResource("17_wum0w")
+region_enabled = true
+region_rect = Rect2(5337.76, 3376.85, 1820.18, 844.413)
+
+[node name="Pixil-frame-0(9)5" type="Sprite2D" parent="."]
+self_modulate = Color(24.31, 96.685, 0.037, 1)
+position = Vector2(1022, 126)
+scale = Vector2(0.0394, 0.0394)
+texture = ExtResource("17_wum0w")
+region_enabled = true
+region_rect = Rect2(3442.53, 4878.03, 2120.41, 713.06)
+
+[node name="Pixil-frame-0(9)6" type="Sprite2D" parent="."]
+self_modulate = Color(24.31, 96.685, 0.037, 1)
+position = Vector2(1021, 198)
+scale = Vector2(0.0394, 0.0394)
+texture = ExtResource("17_wum0w")
+region_enabled = true
+region_rect = Rect2(5919.47, 4859.26, 2157.94, 713.06)
+
+[node name="Pixil-frame-0(9)7" type="Sprite2D" parent="."]
+self_modulate = Color(24.31, 96.685, 0.037, 1)
+position = Vector2(1007, 277)
+scale = Vector2(0.0394, 0.0394)
+texture = ExtResource("17_wum0w")
+region_enabled = true
+region_rect = Rect2(5562.94, 8086.8, 2889.77, 731.824)
+
+[node name="Pixil-frame-0(9)8" type="Sprite2D" parent="."]
+self_modulate = Color(24.31, 96.685, 0.037, 1)
+position = Vector2(577, 105)
+scale = Vector2(0.0394, 0.0394)
+texture = ExtResource("17_wum0w")
+region_enabled = true
+region_rect = Rect2(2879.59, 1988.26, 3978.12, 806.884)
+
+[node name="Pixil-frame-0(9)9" type="Sprite2D" parent="."]
+self_modulate = Color(24.31, 96.685, 0.037, 1)
+position = Vector2(124, 48)
+scale = Vector2(0.0394, 0.0394)
+texture = ExtResource("17_wum0w")
+region_enabled = true
+region_rect = Rect2(3217.35, 3433.14, 1745.12, 769.354)
+
+[node name="BackButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 19.0
+offset_top = 19.0
+offset_right = 80.0
+offset_bottom = 77.0
+flat = true
+
+[node name="Back" type="Sprite2D" parent="BackButton"]
+position = Vector2(27, 31)
+scale = Vector2(0.0449541, 0.0436357)
+texture = ExtResource("15_tw1rq")

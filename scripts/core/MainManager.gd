@@ -53,7 +53,7 @@ func _on_exitbutton_pressed():
 
 func _on_htpbutton_pressed():
 	ButtonSound.play_sound()
-	get_tree().change_scene_to_file("res://scenes/main/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://scenes/main/Tutorial.tscn")
 
 func _on_exit_confirmed():
 	get_tree().quit()

@@ -13,8 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://8o2ojv8chk77" path="res://assets/sprites/environment/bridge-it-on-text.png" id="9_kg8x7"]
 [ext_resource type="Texture2D" uid="uid://b3nrlnm5ko15f" path="res://assets/sprites/environment/Group 13 (1).png" id="12_2g00v"]
 [ext_resource type="Texture2D" uid="uid://7uyyrj0wcvee" path="res://assets/sprites/environment/settings-button.png" id="12_bkjnr"]
-[ext_resource type="Texture2D" uid="uid://bx5x1do3occwv" path="res://assets/sprites/ui/Play.png" id="13_m8347"]
-[ext_resource type="Texture2D" uid="uid://lbeqhy3d0jy8" path="res://assets/sprites/ui/reset.png" id="14_2g00v"]
+[ext_resource type="Texture2D" uid="uid://vlbxvb78rd45" path="res://assets/sprites/environment/speaker-icon.png" id="13_2g00v"]
+[ext_resource type="Texture2D" uid="uid://bpc61vokbwryh" path="res://assets/sprites/environment/music-icon.png" id="14_0aa8n"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_qi05h")
@@ -88,6 +88,7 @@ offset_bottom = 264.0
 
 [node name="Group13(1)" type="Sprite2D" parent="SettingsPanel"]
 position = Vector2(35, 107.5)
+rotation = -0.015708
 scale = Vector2(0.710281, 0.56135)
 texture = ExtResource("12_2g00v")
 
@@ -95,15 +96,15 @@ texture = ExtResource("12_2g00v")
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 1.0
-offset_top = 43.0
+offset_top = 38.0
 offset_right = 70.0
-offset_bottom = 103.0
+offset_bottom = 98.0
 flat = true
 
-[node name="Play" type="Sprite2D" parent="SettingsPanel/MusicButton"]
-position = Vector2(37.0156, 30.5491)
-scale = Vector2(0.0392255, 0.0392255)
-texture = ExtResource("13_m8347")
+[node name="Speaker-icon" type="Sprite2D" parent="SettingsPanel/MusicButton"]
+position = Vector2(33.5, 32)
+scale = Vector2(0.0527778, 0.0666667)
+texture = ExtResource("13_2g00v")
 
 [node name="SoundButton" type="Button" parent="SettingsPanel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -114,10 +115,10 @@ offset_right = 70.0
 offset_bottom = 172.0
 flat = true
 
-[node name="Reset" type="Sprite2D" parent="SettingsPanel/SoundButton"]
-position = Vector2(36.0449, 29.5)
-scale = Vector2(0.0393333, 0.0393333)
-texture = ExtResource("14_2g00v")
+[node name="Music-icon" type="Sprite2D" parent="SettingsPanel/SoundButton"]
+position = Vector2(36, 30)
+scale = Vector2(0.0572916, 0.0572916)
+texture = ExtResource("14_0aa8n")
 
 [node name="SettingsButton" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
