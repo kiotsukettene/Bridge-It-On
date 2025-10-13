@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://1yqtb05urs1s" path="res://scripts/levels/Level2.gd" id="1_wnytt"]
 [ext_resource type="PackedScene" uid="uid://pk6ubp6u20pd" path="res://scenes/bridge/Anchor.tscn" id="2_1hrej"]
 [ext_resource type="Texture2D" uid="uid://hpoui6rjev8a" path="res://assets/sprites/environment/Marker2.png" id="3_jiouf"]
-[ext_resource type="Script" path="res://scripts/ui/FinishFlag.gd" id="3_pixff"]
+[ext_resource type="Script" uid="uid://4nnfcg7u7jr4" path="res://scripts/ui/FinishFlag.gd" id="3_pixff"]
 [ext_resource type="PackedScene" uid="uid://dmovlverqiyoq" path="res://scenes/bridge/FloorBeam.tscn" id="3_wnytt"]
 [ext_resource type="PackedScene" uid="uid://c5c11gku1su0n" path="res://scenes/vehicles/Bus.tscn" id="4_1hrej"]
 [ext_resource type="Texture2D" uid="uid://2o7mljpfpfu7" path="res://assets/sprites/environment/red-flag.png" id="4_pixff"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://df2oy71rfaxp3"]
+[gd_scene load_steps=7 format=3 uid="uid://df2oy71rfaxp3"]
 
 [ext_resource type="Script" uid="uid://bimyemjecqsof" path="res://scripts/physics/FEAAnalyser.gd" id="1_i4w7p"]
 [ext_resource type="Texture2D" uid="uid://mjesgfvsieyb" path="res://assets/sprites/environment/level-passed.png" id="2_i4w7p"]
 [ext_resource type="Texture2D" uid="uid://c7xxhgc1k6jqk" path="res://assets/sprites/ui/reset-button.png" id="3_i4w7p"]
 [ext_resource type="Texture2D" uid="uid://c4cxevwt2makk" path="res://assets/sprites/ui/levels.png" id="4_i4w7p"]
 [ext_resource type="Texture2D" uid="uid://b5i2g87318frn" path="res://assets/sprites/ui/home-logo.png" id="5_sc03o"]
+[ext_resource type="FontFile" uid="uid://x0fwgvhnybxi" path="res://assets/fonts/ARCADE_N.TTF" id="6_sc03o"]
 
 [node name="FEAAnalyser" type="CanvasLayer"]
 visible = false
@@ -60,9 +61,10 @@ stretch_mode = 0
 layout_mode = 0
 offset_left = 80.0
 offset_top = 144.0
-offset_right = 192.0
+offset_right = 200.0
 offset_bottom = 184.0
 theme_override_colors/font_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+theme_override_fonts/font = ExtResource("6_sc03o")
 text = "70.6 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -71,9 +73,10 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 72.0
 offset_top = 248.0
-offset_right = 200.0
+offset_right = 208.0
 offset_bottom = 288.0
 theme_override_colors/font_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+theme_override_fonts/font = ExtResource("6_sc03o")
 text = "70.6 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -83,9 +86,10 @@ autowrap_mode = 2
 layout_mode = 0
 offset_left = 264.0
 offset_top = 248.0
-offset_right = 376.0
+offset_right = 384.0
 offset_bottom = 288.0
 theme_override_colors/font_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+theme_override_fonts/font = ExtResource("6_sc03o")
 text = "70.6 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -94,9 +98,10 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 448.0
 offset_top = 248.0
-offset_right = 560.0
+offset_right = 568.0
 offset_bottom = 288.0
 theme_override_colors/font_color = Color(0.0687983, 0.0687983, 0.0687983, 1)
+theme_override_fonts/font = ExtResource("6_sc03o")
 text = "70.6 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -108,6 +113,7 @@ offset_top = 144.0
 offset_right = 568.0
 offset_bottom = 184.0
 theme_override_colors/font_color = Color(0.00820202, 0.00820202, 0.00820202, 1)
+theme_override_fonts/font = ExtResource("6_sc03o")
 text = "4 nodes"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -119,6 +125,7 @@ offset_top = 144.0
 offset_right = 376.0
 offset_bottom = 184.0
 theme_override_colors/font_color = Color(0.0110876, 0.0110876, 0.0110876, 1)
+theme_override_fonts/font = ExtResource("6_sc03o")
 text = "94.6"
 horizontal_alignment = 1
 vertical_alignment = 1
